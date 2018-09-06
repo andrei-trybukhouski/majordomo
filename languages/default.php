@@ -75,6 +75,7 @@ $dictionary=array(
 'SECTION_DEVICES'=>'Devices',
 'SECTION_SETTINGS'=>'Settings',
 'SECTION_SYSTEM'=>'System',
+'SECTION_PANEL'=>'Panel',
 
 /* end general */
 
@@ -1045,7 +1046,7 @@ $dictionary=array(
 'SAVE_CHANGES'=>'Save changes',
 'ADD_PANE'=>'Add Pane',
 
-'HCB'=>' <a href="http://majordomo.smartliving.ru/Hints/',
+'HCB'=>' <a href="https://majordomo.smartliving.ru/Hints/',
 'HCE'=>'?skin=hint" class="wiki_hint fancybox.iframe"><i class="glyphicon glyphicon-info-sign"></i></a>',
 
     'DATA_KEY' => 'Key data',
@@ -1107,8 +1108,10 @@ $dictionary=array(
     'DEVICES_NOTIFY' => 'Notify when value out of range',
     'DEVICES_NORMAL_VALUE' => 'Value within range',
     'DEVICES_DIRECTION_TIMEOUT' => 'Direction tracking time period (seconds)',
+    'DEVICES_NOTIFY_STATUS' => 'Notify status',
     'DEVICES_NOTIFY_OUTOFRANGE' => 'Value is out of normal range',
     'DEVICES_NOTIFY_BACKTONORMAL' => 'Value is back to normal',
+    'DEVICES_NOTIFY_NOT_CLOSED' => 'Notify when left open',
     'DEVICES_MOTION_IGNORE' => 'Ignore device events when nobody\'s home',
     'DEVICES_MOTION_TIMEOUT' => 'Activity timeout (sec)',
     'DEVICES_ALIVE_TIMEOUT' => 'Possible inactivity timeout (hours)',
@@ -1245,6 +1248,8 @@ $dictionary=array(
     'ADDON_FILE' => 'Addon package',
     'UPLOAD_AND_INSTALL' => 'Upload and Install',
     'ADD_UPDATE_MANUALLY' =>'Add/Update Manually',
+    'TURNING_ON' =>'Turning on',
+    'TURNING_OFF' =>'Turning off',
 
 'TEST'=>'test'
 

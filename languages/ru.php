@@ -73,6 +73,7 @@ $dictionary = array(
     'SECTION_DEVICES' => 'Устройства',
     'SECTION_SETTINGS' => 'Настройки',
     'SECTION_SYSTEM' => 'Система',
+    'SECTION_PANEL'=>'Панель',
 
     /* end general */
 
@@ -1102,8 +1103,10 @@ $dictionary = array(
     'DEVICES_NOTIFY' => 'Уведомлять при выходе за порог',
     'DEVICES_NORMAL_VALUE' => 'Значение в нормальных пределах',
     'DEVICES_DIRECTION_TIMEOUT' => 'Интервал времени расчета направления изменений (сек)',
+    'DEVICES_NOTIFY_STATUS' => 'Уведомлять при смене статуса',
     'DEVICES_NOTIFY_OUTOFRANGE' => 'Значение датчика вышло за порог',
     'DEVICES_NOTIFY_BACKTONORMAL' => 'Значение датчика вернулось к норме',
+    'DEVICES_NOTIFY_NOT_CLOSED' => 'Напоминать об открытом состоянии',
     'DEVICES_MOTION_IGNORE' => 'Игнорировать события от устройства, когда никого нет дома',
     'DEVICES_MOTION_TIMEOUT' => 'Время активности (секунд)',
     'DEVICES_ALIVE_TIMEOUT' => 'Допустимое время отсутствия данных (часов)',
@@ -1238,7 +1241,14 @@ $dictionary = array(
     'ADDON_FILE' => 'Файл дополнения',
     'UPLOAD_AND_INSTALL' => 'Загрузить и установить',
     'ADD_UPDATE_MANUALLY' =>'Добавить/обновить вручную',
-
+    'TURNING_ON' =>'Включаю',
+    'TURNING_OFF' =>'Выключаю',
+    'PATTERN_TIMER' => 'таймер',
+    'PATTERN_DO_AFTER' => 'через',
+    'PATTERN_DO_FOR' => 'на',
+    'PATTERN_SECOND' => 'секунд',
+    'PATTERN_MINUTE' => 'минут',
+    'PATTERN_HOUR' => 'час',
 
     /* end module names */
 

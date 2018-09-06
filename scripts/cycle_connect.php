@@ -16,21 +16,25 @@ $db = new mysql(DB_HOST, '', DB_USER, DB_PASSWORD, DB_NAME);
 
 include_once("./load_settings.php");
 
+$started_time = time();
+$max_run_time = 2*60*60; // do restart in 2 hours
+
 set_time_limit(0);
 const CONNECT_HOST = 'connect.smartliving.ru';
+const CONNECT_PORT = '8883';
+const CONNECT_CA_FILE = '/etc/ssl/certs';
+//const CONNECT_PORT = '1883';
+
+
 
 include_once(DIR_MODULES . 'connect/connect.class.php');
 
 $menu_sent_time = 0;
 
-$mqttLib = file_exists(ROOT . "lib/mqtt/phpMQTT.php");
-if (!$mqttLib) {
-    echo "MQTT application is not installed.";
-    exit;
-} else {
-    require("./lib/mqtt/phpMQTT.php");
-}
+include_once(ROOT . "3rdparty/phpmqtt/phpMQTT.php");
 
+
+$saved_devices_data=array();
 
 while (1) {
     $connect = new connect();
@@ -54,11 +58,17 @@ while (1) {
     $username = strtolower($connect->config['CONNECT_USERNAME']);
     $password = $connect->config['CONNECT_PASSWORD'];
     $host = CONNECT_HOST;
-    $port = 1883;
+    $port = CONNECT_PORT;
+    if (defined('CONNECT_CA_FILE')) {
+        $ca_file=CONNECT_CA_FILE;
+    } else {
+        $ca_file=NULL;
+    }
 
-    $query = $username . '/incoming_urls,' . $username . '/menu_session';
+
+    $query = $username . '/incoming_urls,' . $username . '/menu_session,'. $username . '/reverse_urls';
     $client_name = "MajorDoMo " . $username . " Connect";
-    $mqtt_client = new phpMQTT($host, $port, $client_name);
+    $mqtt_client = new Bluerhinos\phpMQTT($host, $port, $client_name,$ca_file);
 
     if ($mqtt_client->connect(true, NULL, $username, $password)) {
 
@@ -84,15 +94,31 @@ while (1) {
                     exit;
                 }
             }
+            if (!defined('DISABLE_SIMPLE_DEVICES')) {
+                //$saved_devices_data
+                $devices_data=checkOperationsQueue('connect_device_data');
+                foreach($devices_data as $property_data) {
+                    if (!isset($saved_devices_data[$property_data['DATANAME']]) || $saved_devices_data[$property_data['DATANAME']]!=$property_data['DATAVALUE']) {
+                        $saved_devices_data[$property_data['DATANAME']]=$property_data['DATAVALUE'];
+                        send_device_property($property_data['DATANAME'],$property_data['DATAVALUE']);
+                    }
+                }
+            }
             if (time() - $menu_sent_time > 60 * 60) {
                 $menu_sent_time = time();
                 send_all_menu();
+            }
+            if ((time()-$started_time)>$max_run_time) {
+                echo "Exit cycle CONNET... (reconnecting)";
+                $mqtt_client->close();
+                $db->Disconnect();
+                exit;
             }
         }
         $mqtt_client->close();
 
     } else {
-        echo "Failed to connect ...\n";
+        echo date('Y-m-d H:i:s')." Failed to connect ...\n";
         sleep(10);
         continue;
     }
@@ -100,6 +126,7 @@ while (1) {
 
 function procmsg($topic, $msg)
 {
+    echo date("Y-m-d H:i:s") . " Topic:{$topic} $msg\n";
     if (preg_match('/menu_session/is', $topic)) {
         global $cmd_values;
         global $cmd_titles;
@@ -119,17 +146,32 @@ function procmsg($topic, $msg)
         $url = BASE_URL.$msg;
         echo date("Y-m-d H:i:s") . " Incoming url: $url\n";
         getURLBackground($url, 0);
+    } elseif (preg_match('/reverse_urls/is', $topic)) {
+        echo date("Y-m-d H:i:s") . " Incoming reverse url: $msg\n";
+        send_reverse_result($msg,$result);
     }
-    echo date("Y-m-d H:i:s") . " Topic:{$topic} $msg\n";
+
+}
+
+function send_device_property($property,$value) {
+    global $connect;
+    $connect->sendDeviceProperty($property,$value);
 }
 
 function send_menu_element($parent_id) {
-    echo "Sending menu element $parent_id\n";
+    echo date('Y-m-d H:i:s')." Sending menu element $parent_id\n";
     update_menu_data($parent_id);
 }
 
+function send_reverse_result($msg,$result) {
+    global $connect;
+    $url = BASE_URL.$msg;
+    $result = getURL($url, 0);
+    $connect->sendReverseURL($msg,$result);
+}
+
 function send_all_menu() {
-    echo "Sending full menu\n";
+    echo date('Y-m-d H:i:s')." Sending full menu\n";
     global $connect;
     update_menu_data(0);
     $connect->sendMenu(1);

@@ -77,6 +77,7 @@ $dictionary = array (
     'SECTION_DEVICES' => 'Пристрої',
     'SECTION_SETTINGS' => 'Налаштування',
     'SECTION_SYSTEM' => 'Система',
+    'SECTION_PANEL' => 'Панель',
 
     /* end general */
 
@@ -1233,7 +1234,16 @@ $dictionary = array (
     'ADDON_FILE' => 'Файл доповнення',
     'UPLOAD_AND_INSTALL' => 'Завантажити та встановити',
     'ADD_UPDATE_MANUALLY' =>'Додати / оновити вручну',
-
+	
+	
+'TURNING_ON' =>'Вмикаю',
+    'TURNING_OFF' =>'Вимикаю',
+    'PATTERN_TIMER' => 'таймер',
+    'PATTERN_DO_AFTER' => 'через',
+    'PATTERN_DO_FOR' => 'на',
+    'PATTERN_SECOND' => 'секунд',
+    'PATTERN_MINUTE' => 'хвилин',
+    'PATTERN_HOUR' => 'година',
      /* end module names */
 
 

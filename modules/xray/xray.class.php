@@ -368,6 +368,7 @@ function admin(&$out) {
   } elseif ($cmd=='restart' && $service!='') {
    sg($service.'Run','');
    sg($service.'Control','restart');
+   /*
   } elseif ($cmd=='switch_restart' && $service!='') {
    if (gg($service.'AutoRestart')) {
     sg($service.'AutoRestart',0);
@@ -380,6 +381,14 @@ function admin(&$out) {
    } else {
     sg($service.'Disabled',1);
    }
+   */
+  }
+ }
+ if ($this->view_mode=='timers') {
+  global $cmd;
+  global $timer;
+  if ($cmd=='stop' && $timer!='') {
+   clearScheduledJob($timer);
   }
  }
 
@@ -619,8 +628,10 @@ function admin(&$out) {
      echo '<td><b>CYCLE</b></td>';
      echo '<td><b>LIVE</b></td>';
      echo '<td><b>CONTROL</b></td>';
+     /*
      echo '<td><b>DISABLED</b></td>';
      echo '<td><b>AUTO-RECOVERY</b></td>';
+     */
      echo '</tr>';
      for($i=0;$i<$total;$i++) {
       echo '<tr>';
@@ -656,6 +667,7 @@ function admin(&$out) {
       echo '<a href="'.$url.'&cmd=restart" class="btn btn-default">Restart Now</a>&nbsp;';
       echo '</td>';
 
+      /*
       echo '<td>';
       if (getGlobal($title.'Disabled')) {
        echo "<font color='red'><b>".LANG_YES."</b></font>";
@@ -673,6 +685,7 @@ function admin(&$out) {
       }
       echo '&nbsp;<a href="'.$url.'&cmd=switch_restart" class="btn btn-default">Switch</a>&nbsp;';
       echo '</td>';
+      */
 
 
       echo '</tr>';
@@ -690,6 +703,7 @@ function admin(&$out) {
       echo '<td><b>TIMER</b></td>';
       echo '<td><b>COMMAND</b></td>';
       echo '<td><b>SCHEDULED</b></td>';
+      echo '<td></td>';
       echo '</tr>';
      for($i=0;$i<$total;$i++) {
       echo '<tr>';
@@ -701,6 +715,10 @@ function admin(&$out) {
       echo '</td>';
       echo '<td>';
       echo $res[$i]['RUNTIME'].'&nbsp;';
+      echo '</td>';
+      echo '<td>';
+      $url=ROOTHTML.'panel/xray.html?view_mode=timers&timer='.urlencode($res[$i]['TITLE']);
+      echo '<a href="'.$url.'&cmd=stop" class="btn btn-default">Stop</a>';
       echo '</td>';
       echo '</tr>';
      }

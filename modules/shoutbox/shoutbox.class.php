@@ -179,7 +179,7 @@ function admin(&$out) {
 * @access public
 */
 function usual(&$out) {
- SQLExec("DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7");
+  if (date('i',time()) == 0)  SQLExec("DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7");
  $this->admin($out);
 }
 /**

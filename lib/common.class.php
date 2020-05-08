@@ -665,15 +665,20 @@ function runScript($id, $params = '')
     return $sc->runScript($id, $params);
 }
 
+
 function runScriptSafe($id, $params = '')
 {
     $current_call = 'script.' . $id;
-    if (is_array($params)) {
-        $current_call.='.'.md5(json_encode($params));
-    }
     $call_stack = array();
+    if (is_array($params)) {
+        if (isset($params['m_c_s']) && is_array($params['m_c_s']) && !empty($params['m_c_s'])) {
+            $call_stack = $params['m_c_s'];
+        }
+        unset($params['m_c_s']);
+        $current_call .= '.' . md5(json_encode($params));
+    }
     if (IsSet($_SERVER['REQUEST_URI']) && ($_SERVER['REQUEST_URI'] != '')) {
-        if (isset($_GET['m_c_s']) && is_array($_GET['m_c_s'])) {
+        if (isset($_GET['m_c_s']) && is_array($_GET['m_c_s']) && !empty($_GET['m_c_s'])) {
             $call_stack = $_GET['m_c_s'];
         }
         if (in_array($current_call, $call_stack)) {
@@ -682,19 +687,19 @@ function runScriptSafe($id, $params = '')
             return 0;
         }
     }
-    $call_stack[] = $current_call;
+  
     if (!is_array($params)) {
         $params = array();
     }
-    if (isSet($_SERVER['REQUEST_URI'])) {
+
+    $call_stack[] = $current_call;
+    $params['m_c_s'] = $call_stack;       
+
+    if (IsSet($_SERVER['REQUEST_URI']) && ($_SERVER['REQUEST_URI'] != '') && count($call_stack)>1) {
         $result = runScript($id,$params);
     } else {
-        $params['m_c_s'] = $call_stack;
-        if (session_id()) {
-            $params[session_name()] = session_id();
-        }
         $result = callAPI('/api/script/' . urlencode($id), 'GET', $params);
-    }
+    }  
     return $result;
 }
 
@@ -873,7 +878,11 @@ function execInBackground($cmd)
             DebMes('Error: exception ' . get_class($e) . ', ' . $e->getMessage() . '.');
         }
     } else {
-        exec($cmd . " > /dev/null &");
+        try {
+            exec($cmd . " > /dev/null &");
+	} catch (Exception $e) {
+            DebMes('Error: exception ' . get_class($e) . ', ' . $e->getMessage() . '.');
+        }
     }
 }
 
@@ -1421,7 +1430,7 @@ function num2str($num) {
                 if ($i2>1) $out[]= LANG_NUMBER_TO_STRING_TENS[$i2].' '.LANG_NUMBER_TO_STRING_1TEN[1][$i3]; # 20-99
                 else $out[]= $i2>0 ? LANG_NUMBER_TO_STRING_2TEN[$i3] : LANG_NUMBER_TO_STRING_1TEN[1][$i3]; # 10-19 | 1-9
             } else {
-                if ($i2>1) $out[]= LANG_NUMBER_TO_STRING_2TEN[$i2].' '.LANG_NUMBER_TO_STRING_1TEN[$gender][$i3]; # 20-99
+                if ($i2>1) $out[]= LANG_NUMBER_TO_STRING_TENS[$i2].' '.LANG_NUMBER_TO_STRING_1TEN[$gender][$i3]; # 20-99
                 else $out[]= $i2>0 ? LANG_NUMBER_TO_STRING_2TEN[$i3] : LANG_NUMBER_TO_STRING_1TEN[$gender][$i3]; # 10-19 | 1-9
             }
             // units without rub & kop
@@ -1449,3 +1458,100 @@ function num2straddon($n, $f1, $f2, $f5) {
     if ($n==1) return $f1;
     return $f5;
 }
+
+function date2str($date)
+    {
+        if (empty($date)) {
+            return '';
+        }
+        
+        $thousands = array(
+            1 => 'одна тысяча',
+            2 => 'две тысячи',
+        );
+        
+        $hundreds = array(
+            0 => '',
+            9 => 'девятьсот',
+        );
+        
+        $days = array(
+            1 => 'первое',
+            2 => 'второе',
+            3 => 'третье',
+            4 => 'четвертое',
+            5 => 'пятое',
+            6 => 'шестое',
+            7 => 'седьмое',
+            8 => 'восьмое',
+            9 => 'девятое',
+            10 => 'десятое',
+            11 => 'одиннадцатое',
+            12 => 'двенадцатое',
+            13 => 'тринадцатое',
+            14 => 'четырнадцатое',
+            15 => 'пятнадцатое',
+            16 => 'шестнадцатое',
+            17 => 'семнадцатое',
+            18 => 'восемнадцатое',
+            19 => 'девятнадцатое',
+            20 => 'двадцатое',
+            30 => 'тридцатое',
+            40 => 'сороковое',
+        );
+        
+        $tens = array(
+            20 => 'двадцать',
+            30 => 'тридцать',
+            40 => 'сорок',
+        ); 
+        
+        foreach ($tens as $d => $ten) {
+            for ($day = 1; $day < 10; $day++) {
+                $days[$d + $day] = $ten . ' ' . $days[$day];
+            }
+        }
+        
+        $months = array(
+            0 => 'нулября',
+            1 => 'января',
+            2 => 'февраля',
+            3 => 'марта',
+            4 => 'апреля',
+            5 => 'мая',
+            6 => 'июня',
+            7 => 'июля',
+            8 => 'августа',
+            9 => 'сентября',
+            10 => 'октября',
+            11 => 'ноября',
+            12 => 'декабря',
+        );
+        
+        list($year, $month, $day) = explode('-', $date);
+
+        $monthStr = $months[(int)$month];
+        $dayStr = $days[(int)$day];
+        
+        $yearPart = $days[(int)mb_substr($year, -2)];
+        $endYear = mb_substr($yearPart, -2);
+        
+        switch ($endYear) {
+            case 'ое':
+                $yearPart = mb_substr($yearPart, 0, -2) . 'ого';
+                break;
+            case 'ье':
+                $yearPart .= 'го';
+                break;
+        }
+        
+        $yearParts = array(
+            $thousands[(int)$year[0]],
+            $hundreds[(int)$year[1]],
+            $yearPart
+        );
+        
+        $yearStr = implode(' ', array_filter(array_map('trim', $yearParts)));
+        
+        return implode(' ', array($dayStr, $monthStr, $yearStr));
+    }

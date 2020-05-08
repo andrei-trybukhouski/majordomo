@@ -1,6 +1,9 @@
 <?php
 
 $ot = $this->object_title;
+
+$this->callMethodSafe('keepAlive');
+
 if (!isset($params['statusUpdated'])) {
     setTimeout($ot . '_motion_timer_status', '', 3);
 }

@@ -36,7 +36,7 @@ endMeasure('apprun');
 
 startMeasure('part2');
 
-if ($filterblock != '')
+if (isset($filterblock) and $filterblock != '')
 {
    $blockPattern = '/<!-- begin_data \[' . $filterblock . '\] -->(.*?)<!-- end_data \[' . $filterblock . '\] -->/is';
    preg_match($blockPattern, $result, $match);
@@ -77,7 +77,7 @@ endMeasure('accelerationProcess');
 endMeasure('part2');
 
 
-if ($_GET['part_load']) {
+if (isset($_GET['part_load'])) {
 
    $res=array();
    $res['TITLE']='';
@@ -125,7 +125,7 @@ if ($_GET['part_load']) {
 startMeasure('echoall');
 
 
-if (is_array($_GET['dynids'])) {
+if (isset($_GET['dynids']) and is_array($_GET['dynids'])) {
 
    $data = array();
    foreach ($_GET['dynids'] as $data_id) {

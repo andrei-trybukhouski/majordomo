@@ -26,7 +26,13 @@
     width:75px;
 }
 
-.device-widget.mini.motion {
+.device-widget.mini.sensor {
+    min-width:75px;
+    max-width:75px;
+    width:75px;
+}
+
+.device-widget.mini.openable {
     min-width:75px;
     max-width:75px;
     width:75px;
@@ -73,7 +79,7 @@
 }
 
 .controller .device-header {
-    height:40px;
+    /*height:40px;*/
     position: relative;
     padding-top:10px;
 }
@@ -118,6 +124,10 @@
     font-weight:bold;
 }
 
+.device-icon.ac {
+    background-image: url(../cms/scenes/styles/common/i_condition_on_cool.png);
+}
+
 .device-icon.camera {
     background-image: url(../cms/scenes/styles/common/i_camera_on.png);
 }
@@ -142,6 +152,10 @@
     background-color:yellow;
 }
 
+.device-icon.ac.on {
+    background-color:yellow;
+}
+
 .device-icon.motion.on {
     background-color:yellow;
 }
@@ -160,6 +174,7 @@
 
 .device-icon.openclose.on {
     background-color:yellow;
+    background-image: url(../cms/scenes/styles/common/i_window_on.png);
 }
 
 .opentype_curtains .device-icon {
@@ -209,6 +224,11 @@
 .device-icon.humidity {
     background-image: url(../cms/scenes/styles/informer/i_humidity.png);
 }
+
+.device-icon.moisture {
+    background-image: url(../cms/scenes/styles/common/i_sad.png);
+}
+
 
 .device-icon.pressure {
     background-image: url(../cms/scenes/styles/informer/i_temp.png);
@@ -304,4 +324,16 @@
 
 .noselect {
 
+}
+
+.device-icon.tv {
+    background-image: url(../cms/scenes/styles/common/i_tv_on.png);
+}
+
+.device-icon.vacuum {
+    background-image: url(../cms/scenes/styles/common/i_dimmer_on.png);
+}
+
+.device-icon.media {
+    background-image: url(../cms/scenes/styles/common/i_videoplayer_on.png);
 }

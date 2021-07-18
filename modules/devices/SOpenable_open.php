@@ -1,7 +1,13 @@
 <?php
 
+if ($this->getProperty('support_level')) {
+    $level_saved = $this->getProperty('levelSaved');
+    if (!$level_saved) $level_saved=100;
+    $this->callMethod('setLevel',array('value'=>$level_saved));
+}
+
 /*
-include_once(DIR_MODULES . 'devices/devices.class.php');
+include_once(dirname(__FILE__) . '/devices.class.php');
 
 $dv = new devices();
 if ($dv->isHomeBridgeAvailable()) {

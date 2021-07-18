@@ -86,8 +86,8 @@ class devices extends module
 
     function setDictionary()
     {
-        include_once(DIR_MODULES . 'devices/devices_structure.inc.php');
-        include_once(DIR_MODULES . 'devices/devices_structure_links.inc.php');
+        include_once(dirname(__FILE__) . '/devices_structure.inc.php');
+        include_once(dirname(__FILE__) . '/devices_structure_links.inc.php');
     }
 
     /**
@@ -404,9 +404,9 @@ class devices extends module
             if (is_array($v['METHODS'])) {
                 foreach ($v['METHODS'] as $mk => $mv) {
                     $method_id = addClassMethod($v['CLASS'], $mk, "require(DIR_MODULES.'devices/" . $v['CLASS'] . "_" . $mk . ".php');", 'SDevices');
-                    if (!file_exists(DIR_MODULES . "devices/" . $v['CLASS'] . "_" . $mk . ".php")) {
+                    if (!file_exists(dirname(__FILE__) .'/'. $v['CLASS'] . "_" . $mk . ".php")) {
                         $code = '<?php' . "\n\n";
-                        @SaveFile(DIR_MODULES . "devices/" . $v['CLASS'] . "_" . $mk . ".php", $code);
+                        @SaveFile(dirname(__FILE__) . "/" . $v['CLASS'] . "_" . $mk . ".php", $code);
                     }
                     if ($method_id) {
                         $method = SQLSelectOne("SELECT * FROM methods WHERE ID=" . $method_id);
@@ -427,9 +427,9 @@ class devices extends module
                     foreach ($methods as $mk => $mv) {
                         list($object, $method_name) = explode('.', $mk);
                         addClassObject($class_name, $object);
-                        if (!file_exists(DIR_MODULES . "devices/" . $mv . ".php")) {
+                        if (!file_exists(dirname(__FILE__) . "/" . $mv . ".php")) {
                             $code = '<?php' . "\n\n";
-                            @SaveFile(DIR_MODULES . "devices/" . $mv . ".php", $code);
+                            @SaveFile(dirname(__FILE__) . "/" . $mv . ".php", $code);
                         }
                         injectObjectMethodCode($mk, 'SDevices', "require(DIR_MODULES.'devices/" . $mv . ".php');");
                     }
@@ -461,7 +461,7 @@ class devices extends module
     {
         if ($event == 'COMMAND' && $details['member_id']) {
             //DebMes("Processing event $event",'simple_devices');
-            include_once(DIR_MODULES . 'devices/processCommand.inc.php');
+            include_once(dirname(__FILE__) . '/processCommand.inc.php');
             //DebMes("Processing event $event DONE",'simple_devices');
         }
         if ($event == 'MINUTELY') {
@@ -558,7 +558,7 @@ class devices extends module
     function homebridgeSync($device_id = 0, $force_refresh = 0)
     {
         if ($this->isHomeBridgeAvailable()) {
-            include_once(DIR_MODULES . 'devices/homebridgeSync.inc.php');
+            include_once(dirname(__FILE__) . '/homebridgeSync.inc.php');
         }
     }
 
@@ -626,7 +626,7 @@ class devices extends module
 
     function manage_groups(&$out)
     {
-        require(DIR_MODULES . $this->name . '/devices_manage_groups.inc.php');
+        require(dirname(__FILE__) . '/devices_manage_groups.inc.php');
     }
 
     /**
@@ -659,6 +659,19 @@ class devices extends module
                 $id=gr('id');
                 $res = $this->processDevice($id,$view);
             }
+            if ($op == 'get_devices') {
+                $ids=gr('ids');
+                $tmp=explode(',',$ids);
+                $res=array();
+                foreach($tmp as $id) {
+                    if (!$id) continue;
+                    $record = $this->processDevice($id);
+                    if (!$record['DEVICE_ID']) continue;
+                    $res['devices'][] = $record;
+                }
+
+                //$res = $this->processDevice($id,$view);
+            }
             if ($op == 'loadAllDevicesHTML') {
                 /*
                 if (gr('favorite')) {
@@ -667,7 +680,7 @@ class devices extends module
                     $devices=SQLSelect("SELECT ID, LINKED_OBJECT FROM devices WHERE FAVORITE!=1");
                 }
                 */
-                $devices = SQLSelect("SELECT ID, LINKED_OBJECT FROM devices WHERE SYSTEM_DEVICE=0");
+                $devices = SQLSelect("SELECT ID, LINKED_OBJECT FROM devices WHERE SYSTEM_DEVICE=0 AND ARCHIVED=0");
                 $total = count($devices);
                 for ($i = 0; $i < $total; $i++) {
                     if ($devices[$i]['LINKED_OBJECT']) {
@@ -708,7 +721,7 @@ class devices extends module
         }
 
         if ($location_id || $type || $collection) {
-            $qry = "1 AND SYSTEM_DEVICE=0";
+            $qry = "1 AND SYSTEM_DEVICE=0 AND ARCHIVED=0";
             $orderby = 'locations.PRIORITY DESC, LOCATION_ID, TYPE, TITLE';
             if (preg_match('/loc(\d+)/', $type, $m)) {
                 $location_id = $m[1];
@@ -737,7 +750,7 @@ class devices extends module
                     $qry .= " AND devices.TYPE LIKE '" . DBSafe($type) . "'";
                     $out['TITLE'] = $this->device_types[$type]['TITLE'];
                 } else {
-                    $orderby = 'TYPE, locations.PRIORITY DESC, LOCATION_ID, TITLE';
+                    $orderby = 'TYPE, locations.PRIORITY DESC, locations.TITLE, LOCATION_ID, TITLE';
                 }
                 $out['TYPE'] = $type;
             }
@@ -770,9 +783,9 @@ class devices extends module
                 }
             }
         } else {
-            $orderby = 'locations.PRIORITY DESC, LOCATION_ID, TYPE, TITLE';
+            $orderby = 'locations.PRIORITY DESC, locations.TITLE, LOCATION_ID, TYPE, TITLE';
             //$qry=" devices.FAVORITE=1";
-            $qry.= " AND SYSTEM_DEVICE=0";
+            $qry.= " AND SYSTEM_DEVICE=0 AND ARCHIVED=0";
             $out['ALL_DEVICES']=1;
             $devices = SQLSelect("SELECT devices.*, locations.TITLE as LOCATION_TITLE FROM devices LEFT JOIN locations ON devices.LOCATION_ID=locations.ID WHERE $qry ORDER BY $orderby");
             $recent_devices=SQLSelect("SELECT devices.* FROM devices WHERE !IsNull(CLICKED) ORDER BY CLICKED DESC LIMIT 10");
@@ -795,7 +808,7 @@ class devices extends module
             }
         }
 
-        $locations = SQLSelect("SELECT ID, TITLE FROM locations ORDER BY PRIORITY DESC, TITLE+0");
+        $locations = SQLSelect("SELECT ID, TITLE FROM locations ORDER BY PRIORITY DESC, TITLE");
         $total_devices = count($devices);
         if ($total_devices) {
             $favorite_devices = array();
@@ -899,7 +912,7 @@ class devices extends module
             foreach ($this->device_types as $k => $v) {
                 if ($v['TITLE']) {
                     $type_rec = array('NAME' => $k, 'TITLE' => $v['TITLE']);
-                    $tmp = SQLSelectOne("SELECT COUNT(*) AS TOTAL FROM devices WHERE SYSTEM_DEVICE=0 AND TYPE='" . $k . "'");
+                    $tmp = SQLSelectOne("SELECT COUNT(*) AS TOTAL FROM devices WHERE SYSTEM_DEVICE=0 AND ARCHIVED=0 AND TYPE='" . $k . "'");
                     $type_rec['TOTAL'] = (int)$tmp['TOTAL'];
                     if ($type_rec['TOTAL'] > 0) {
                         $types[] = $type_rec;
@@ -982,7 +995,7 @@ class devices extends module
      */
     function search_devices(&$out)
     {
-        require(DIR_MODULES . $this->name . '/devices_search.inc.php');
+        require(dirname(__FILE__) . '/devices_search.inc.php');
     }
 
     /**
@@ -992,12 +1005,12 @@ class devices extends module
      */
     function edit_devices(&$out, $id)
     {
-        require(DIR_MODULES . $this->name . '/devices_edit.inc.php');
+        require(dirname(__FILE__) . '/devices_edit.inc.php');
     }
 
     function quick_edit(&$out)
     {
-        require(DIR_MODULES . $this->name . '/devices_quick_edit.inc.php');
+        require(dirname(__FILE__) . '/devices_quick_edit.inc.php');
     }
 
     /**
@@ -1418,7 +1431,7 @@ class devices extends module
             endMeasure('checkLinkedDevicesAction');
             return 0;
         }
-        include(DIR_MODULES . 'devices/devices_links_actions.inc.php');
+        include(dirname(__FILE__) . '/devices_links_actions.inc.php');
         endMeasure('checkLinkedDevicesAction');
         return 1;
     }
@@ -1479,6 +1492,7 @@ class devices extends module
  devices: FAVORITE int(3) unsigned NOT NULL DEFAULT 0 
  devices: SYSTEM_DEVICE int(3) unsigned NOT NULL DEFAULT 0
  devices: CLICKED datetime DEFAULT NULL
+ devices: ARCHIVED int(3) unsigned NOT NULL DEFAULT 0
 
  devices: SYSTEM varchar(255) NOT NULL DEFAULT ''
  devices: SUBTYPE varchar(100) NOT NULL DEFAULT ''

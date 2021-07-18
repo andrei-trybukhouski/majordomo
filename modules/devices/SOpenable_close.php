@@ -1,7 +1,11 @@
 <?php
 
+if ($this->getProperty('support_level')) {
+    $this->callMethod('setLevel',array('value'=>0));
+}
+
 /*
-include_once(DIR_MODULES . 'devices/devices.class.php');
+include_once(dirname(__FILE__) . '/devices.class.php');
 $dv = new devices();
 if ($dv->isHomeBridgeAvailable()) {
     $payload = array();

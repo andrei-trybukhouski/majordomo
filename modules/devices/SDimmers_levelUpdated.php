@@ -22,10 +22,10 @@ if ($level > 0) {
         $this->setProperty('status', 1, false);
     }
     if ($minWork != $maxWork) {
-        DebMes("Level updated to " . $level ." ".$_SERVER['REQUEST_URI'], 'dimming');
+        //DebMes("Level updated to " . $level ." ".$_SERVER['REQUEST_URI'], 'dimming');
         $levelWork = round($minWork + round(($maxWork - $minWork) * $level / 100));
         if ($this->getProperty('levelWork') != $levelWork) {
-            DebMes("Setting new levelWork to " . (int)$levelWork, 'dimming');
+            //DebMes("Setting new levelWork to " . (int)$levelWork, 'dimming');
             $this->setProperty('levelWork', (int)$levelWork);
         }
     }
@@ -41,7 +41,7 @@ if ($level > 0) {
 
 if (!$statusUpdated) {
     $this->callMethod('logicAction');
-    include_once(DIR_MODULES . 'devices/devices.class.php');
+    include_once(dirname(__FILE__) . '/devices.class.php');
     $dv = new devices();
     $dv->checkLinkedDevicesAction($this->object_title, $level);
 }

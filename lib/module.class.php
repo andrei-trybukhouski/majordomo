@@ -203,7 +203,7 @@ class module
 
                     // setting params for current module
                     // module has instance in params
-                    if ($cr['instance'] != '') {
+                    if (isset($cr['instance']) && $cr['instance'] != '') {
                         $instance_params[$module_name][$cr['instance']] = $cr;
                     } else {
                         // module has no instance
@@ -312,15 +312,13 @@ class module
         if (!file_exists($flag_filename)) {
             $this->install();
         } else {
-            $sqlQuery = "SELECT *
-                        FROM project_modules
-                       WHERE NAME = '" . $this->name . "'";
-
+            /*
+            $sqlQuery = "SELECT ID FROM project_modules WHERE NAME = '" . $this->name . "'";
             $rec = SQLSelectOne($sqlQuery);
             if (!isset($rec["ID"])) {
                 $this->install();
             }
-
+            */
         }
     }
 
@@ -526,7 +524,7 @@ class module
             }
         }
 
-        if ($to_optimize[0]) {
+        if (isset($to_optimize[0])) {
             foreach ($to_optimize as $table) {
                 SQLExec("OPTIMIZE TABLE " . $table . ";");
             }
@@ -543,7 +541,7 @@ class module
             $queryCnt = count($query) - 1;
 
             for ($i = 0; $i < $queryCnt; $i++) {
-                if ($query[$i]{0} != "#") {
+                if ($query[$i][0] != "#") {
                     SQLExec($query[$i]);
                     $mdf[] = "#" . $query[$i];
                 } else {

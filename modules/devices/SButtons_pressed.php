@@ -1,6 +1,9 @@
 <?php
 
 $ot = $this->object_title;
+
+$this->callMethodSafe('keepAlive');
+
 if (!isset($params['statusUpdated'])) {
   setTimeout($ot . '_pressed_status', '', 3);
   $this->setProperty('status', 1);
@@ -15,7 +18,7 @@ if ($linked_room && $this->getProperty('isActivity')) {
 }
 
 /*
-include_once(DIR_MODULES . 'devices/devices.class.php');
+include_once(dirname(__FILE__) . '/devices.class.php');
 $dv = new devices();
 $dv->checkLinkedDevicesAction($ot, $this->getProperty('status'));
 */

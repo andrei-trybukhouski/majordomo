@@ -78,6 +78,7 @@ if ($this->mode == 'update') {
             $new_rec = 1;
             $rec['ID'] = SQLInsert($table_name, $rec); // adding new record
         }
+        clearCacheData();
         $out['OK'] = 1;
     } else {
         $out['ERR'] = 1;
@@ -122,9 +123,11 @@ if ($this->tab == 'properties') {
                 SQLExec("DELETE FROM properties WHERE ID='" . $delete_prop . "' AND OBJECT_ID='" . $rec['ID'] . "'");
             }
         }
+        clearCacheData();
     }
 
     if ($this->mode == 'update') {
+        clearCacheData();
         $new_property = gr('new_property','trim');
         $new_property = str_replace(' ','',$new_property);
         $new_value = gr('new_value');
@@ -171,22 +174,35 @@ if ($this->tab == 'properties') {
         $props[$i]['VALUE'] = $value['VALUE'];
         $props[$i]['VALUE_HTML'] = htmlspecialchars($props[$i]['VALUE']);
         $props[$i]['SOURCE'] = $value['SOURCE'];
-        $props[$i]['LINKED_MODULES'] = $value['LINKED_MODULES'];
+        $props[$i]['UPDATED'] = date('d.m.Y H:i:s', strtotime($value['UPDATED']));
+		
+		$value['LINKED_MODULES'] = explode(',', $value['LINKED_MODULES']);
+		if(is_array($value['LINKED_MODULES'])) {
+			foreach($value['LINKED_MODULES'] as $prop_link) {
+				if(!$prop_link) break; 
+				$props[$i]['LINKED_MODULES'] .= '<span class="label label-success" style="margin-right: 3px;"><a style="color: white;text-decoration: none;" href="?(panel:{action='.$prop_link.'})&md='.$prop_link.'&go_linked_object='.urlencode($rec['TITLE']).'&go_linked_property='.urlencode($props[$i]['TITLE']).'">'.$prop_link.'</a></span>';
+			}
+		}
     }
     if ($this->mode == 'update') {
         $this->redirect("?view_mode=" . $this->view_mode . "&id=" . $rec['ID'] . "&tab=" . $this->tab);
     }
-
+	
     $out['PROPERTIES'] = $props;
-
 }
 // step: methods
 if ($this->tab == 'methods') {
-
+	
 
     global $overwrite;
     global $delete_meth;
-
+	
+	if(defined('SETTINGS_CODEEDITOR_TURNONSETTINGS')) {
+		$out['SETTINGS_CODEEDITOR_TURNONSETTINGS'] = SETTINGS_CODEEDITOR_TURNONSETTINGS;
+		$out['SETTINGS_CODEEDITOR_UPTOLINE'] = SETTINGS_CODEEDITOR_UPTOLINE;
+		$out['SETTINGS_CODEEDITOR_SHOWERROR'] = SETTINGS_CODEEDITOR_SHOWERROR;
+	}
+	
     if ($delete_meth) {
         $method = SQLSelectOne("SELECT * FROM methods WHERE ID='" . (int)$delete_meth . "'");
         $my_meth = SQLSelectOne("SELECT * FROM methods WHERE OBJECT_ID='" . $rec['ID'] . "' AND TITLE LIKE '" . DBSafe($method['TITLE']) . "'");
@@ -218,8 +234,9 @@ if ($this->tab == 'methods') {
             global $call_parent;
             global $run_type;
 
-
-            $my_meth['CODE'] = $code;
+			$old_code=$my_meth['CODE'];
+			$my_meth['CODE'] = $code;
+			
             $my_meth['CALL_PARENT'] = $call_parent;
             $my_meth['TITLE'] = $method['TITLE'];
             $my_meth['OBJECT_ID'] = $rec['ID'];
@@ -233,17 +250,30 @@ if ($this->tab == 'methods') {
 
             if ($run_type == 'code' && $my_meth['CODE'] != '') {
                 //echo $content;
-                $errors = php_syntax_error($my_meth['CODE']);
-                if ($errors) {
-                    $out['ERR_CODE'] = 1;
-                    $out['ERRORS'] = nl2br($errors);
-                    $ok = 0;
-                }
+                if (!defined('PYTHON_PATH') and !isItPythonCode($my_meth['CODE'])) {
+
+           
+                    $errors = php_syntax_error($my_meth['CODE']);
+			
+                    if ($errors) {
+                        $out['ERR_LINE'] = preg_replace('/[^0-9]/', '', substr(stristr($errors, 'php on line '), 0, 18))-2;
+                        $out['ERR_CODE'] = 1;
+                        $errorStr = explode('Parse error: ', str_replace("'", '', strip_tags(nl2br($errors))));
+                        $errorStr = explode('Errors parsing', $errorStr[1]);
+                        $errorStr = explode(' in ', $errorStr[0]);
+                        //var_dump($errorStr);
+                        $out['ERRORS'] = $errorStr[0];
+                        $ok = 0;
+                        $out['OK'] = $ok;
+                        $out['ERR_OLD_CODE'] = $old_code;
+                    }
+                } else {
+                    // chek python code
+                }					
                 $out['CODE'] = $my_meth['CODE'];
             }
 
             if ($ok) {
-
                 if ($my_meth['ID']) {
                     SQLUpdate('methods', $my_meth);
                 } else {
@@ -252,7 +282,6 @@ if ($this->tab == 'methods') {
                 $out['OK'] = 1;
 
             }
-
         }
         if (!$my_meth['ID']) {
             $out['CALL_PARENT'] = 1;
@@ -270,7 +299,9 @@ if ($this->tab == 'methods') {
     $total = count($methods);
     for ($i = 0; $i < $total; $i++) {
         $my_meth = SQLSelectOne("SELECT ID FROM methods WHERE OBJECT_ID='" . $rec['ID'] . "' AND TITLE LIKE '" . DBSafe($methods[$i]['TITLE']) . "'");
-        if ($my_meth['ID']) {
+        $obj_name = SQLSelectOne("SELECT TITLE FROM `objects` WHERE ID = {$rec['ID']}");
+			 $methods[$i]['OBJECT_TITLE'] = $obj_name['TITLE'];
+		if ($my_meth['ID']) {
             $methods[$i]['CUSTOMIZED'] = 1;
         }
     }

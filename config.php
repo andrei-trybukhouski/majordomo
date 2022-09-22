@@ -7,8 +7,8 @@
 * @version 1.1
 */
 
-Define('DB_HOST', '192.168.1.201');
-Define('DB_NAME', 'db_terminal');
+Define('DB_HOST', $_SERVER["MYSQL_HOST"]);
+Define('DB_NAME', $_SERVER["MYSQL_DATABASE"]);
 Define('DB_USER', $_SERVER["MYSQL_USER"]);
 Define('DB_PASSWORD', $_SERVER["MYSQL_PASSWORD"]);
 Define('DIR_TEMPLATES', "./templates/");
@@ -73,8 +73,7 @@ Define('GIT_URL', 'https://github.com/sergejey/majordomo/');
 Define('MASTER_UPDATE_URL', GIT_URL.'archive/master.tar.gz'); // master update URL (https://github.com/sergejey/majordomo/archive/alpha.tar.gz)
 
 $aditional_git_urls = array(
-   //'https://github.com/AKEB/majordomo/archive/alpha.tar.gz' => 'AKEB/alpha',
-   //'https://github.com/AKEB/majordomo/archive/master.tar.gz' => 'AKEB/master',
+   'https://github.com/tribukhouski/majordomo/archive/workalpha.zip' => 'my/workalpha',
 );
 
 
@@ -99,3 +98,6 @@ Define('AUDIO_PLAYER','play'); // audio-player for linux
 Define('LOCAL_IP','192.168.1.201'); // local IP
 //Define('BTRACED', 1);
 //Define('LOWER_BACKGROUND_PROCESSES',1); // lower number of background processes created
+
+Define('HISTORY_NO_OPTIMIZE', "0");
+Define('MY_DATE_FMT',"d.m H:i:s");

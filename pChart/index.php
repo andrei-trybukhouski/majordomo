@@ -74,7 +74,7 @@ $property = SQLSelectOne("SELECT * FROM properties WHERE ID=" . (int)$prop_id);
 $pvalue = SQLSelectOne("SELECT * FROM pvalues WHERE PROPERTY_ID='" . $prop_id . "' AND OBJECT_ID='" . $obj->id . "'");
 
 if (!$pvalue['ID']) {
-    echo "Incorrect property name";
+    echo LANG_NO_RECORDS_FOUND;
     exit;
 }
 
@@ -204,6 +204,39 @@ if ($total > 0) {
                 exit;
             }
 
+            if ($_GET['export']) {
+                $data = SQLSelect("SELECT * FROM $history_table WHERE VALUE_ID='" . $pvalue['ID'] . "' ORDER BY ADDED");
+                //dprint($data);
+
+                $csv = implode("\t", array('ADDED','VALUE')) . PHP_EOL;
+                foreach ($data as $row) {
+                    $csv .= $row['ADDED']."\t".$row['VALUE'];
+                    $csv .= PHP_EOL;
+                }
+
+                $filename = 'data_'.date('Y-m-d-H_i_s').'.txt';
+                $now = gmdate("D, d M Y H:i:s");
+                //header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+                //header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+                //header("Last-Modified: {$now} GMT");
+
+                // force download
+                header("Content-Type: application/force-download");
+                header("Content-Type: application/octet-stream");
+                header("Content-Type: application/download");
+
+                // disposition / encoding on response body
+                header("Content-Disposition: attachment;filename={$filename}");
+                header("Content-Transfer-Encoding: binary");
+
+                echo $csv;
+
+
+                exit;
+
+                // ID, VALUE, SOURCE, ADDED
+            }
+
             echo "<html><head>";
             $roothtml = ROOTHTML;
             echo <<<FF
@@ -251,34 +284,74 @@ FF;
                         $height = 500;
                     }
 
-
                     if (!is_array($_GET['p'])) {
-                        $code = '<iframe allowfullscreen="true" src="' . ROOTHTML . 'module/charts.html?id=config&enable_fullscreen=1&period=' . $_GET['subop'] . '&chart_type=' . urlencode($_GET['chart_type']) . '&group=' . $group . '&property=' . urlencode($_GET['p']) . '&height=' . $height . '&theme=grid-light" width=100% height=' . ($height) . ' frameBorder=0></iframe>';
+                        $properties=array($_GET['p']);
                     } else {
-                        $p_url = '';
-                        foreach ($_GET['p'] as $p) {
-                            $p_url .= '&properties[]=' . urlencode($p);
-                        }
+                        $properties = $_GET['p'];
                         $p_url .= '&height=' . $height;
-                        $code = '<iframe allowfullscreen="true" src="' . ROOTHTML . 'module/charts.html?id=config&enable_fullscreen=1&period=' . $_GET['subop'] . '&chart_type=' . urlencode($_GET['chart_type']) . '&group=' . $group . $p_url . '&theme=grid-light&frameBorder=0" width=100% height=' . $height . '></iframe>';
                     }
+                    $p_url = '';
+                    foreach ($properties as $p) {
+                        $p_url .= '&properties[]=' . urlencode($p);
+                        if (preg_match('/^(\w+)\.(\w+)$/',$p,$m)) {
+                            $object = getObject($m[1]);
+                            if ($object->description) {
+                                $p_url .= '&legend[]=' . urlencode($object->description.' ('.$m[2].')');
+                            } else {
+                                $p_url .= '&legend[]=' . urlencode($p);
+                            }
+                        }
+                    }
+                    $code = '&nbsp;<iframe allowfullscreen="true" border="0" frameborder="0" src="' . ROOTHTML . 'module/charts.html?id=config&enable_fullscreen=1&period=' . $_GET['subop'] . '&chart_type=' . urlencode($_GET['chart_type']) . '&group=' . $group . $p_url . '&theme=grid-light&frameBorder=0" style="height:80% !important" width=100% ></iframe>';//height=' . $height . '
                 } else {
-                    $code = '<img src="' . ROOTHTML . '3rdparty/jpgraph/?p=' . $p . '&type=' . $_GET['subop'] . '&width=500&"/>';
+                    $code = '&nbsp;<img src="' . ROOTHTML . '3rdparty/jpgraph/?p=' . $p . '&type=' . $_GET['subop'] . '&width=500&"/>';
                 }
                 echo $code;
+                /*
                 if (!$_GET['minimal']) {
                     echo "<br/>" . htmlspecialchars($code);
                 }
+                */
                 exit;
             }
         }
+
+
         $history = array_reverse($history);
+
+        /*
         if (!$_GET['full']) {
             $history = array_slice($history, 0, 25);
             $total_values = count($history);
         }
+        */
+        require(ROOT.'3rdparty/Paginator/Paginator.php');
+        $page=(int)$_GET['page'];
+        if (!$page) $page=1;
+
+        $on_page=20;
+        //$limit=(($page-1)*$on_page).','.$on_page;
+        $start_offset = (($page-1)*$on_page);
+        //$urlPattern='?page=(:num)';
+        $url = $_SERVER['REQUEST_URI'];
+        $url = preg_replace('/&page=\d+/','',$url);
+        $urlPattern=$url.'&page=(:num)';
+        $paginator = new JasonGrimes\Paginator($total_values, $on_page, $page, $urlPattern);
+
+        $history = array_slice($history,$start_offset,$on_page);
+        $total_values = count($history);
+
+        echo "<div class='row'><div class='col-md-1'>&nbsp;</div>";
+        echo "<div class='col-md-5'>";
+        echo $paginator;
+        echo "</div>";
+        echo "<div class='col-md-5 text-right pagination'>";
+        echo "<a href=\"".$_SERVER['REQUEST_URI'] . "&type=1&export=1\" class='btn btn-default'><i class='glyphicon glyphicon-export'></i> ".LANG_EXPORT."</a>";
+        echo "</div>";
+        echo "<div class='col-md-1'>&nbsp;</div></div>";
+
         echo "<table class='table table-striped'>";
-        echo "<thead><tr><th>T</th><th>V</th><th>Src</th><th>&nbsp;</th></tr></thead>";
+        echo "<thead><tr><th>".LANG_ADDED."</th><th>".LANG_VALUE."</th><th>Src</th><th>&nbsp;</th></tr></thead>";
         for ($i = 0; $i < $total_values; $i++) {
             //echo date('Y-m-d H:i:s', $history[$i]['UNX']);
             echo "<tr><td>";
@@ -305,9 +378,11 @@ FF;
             echo "</tr>";
         }
         echo "</table>";
+        /*
         if (!$_GET['full']) {
             echo ' <br/><a href="' . $_SERVER['REQUEST_URI'] . '&type=1&full=1" class="btn btn-default btn-warning">Load all values</a> ';
         }
+        */
 
         echo "</div></body></html>";
         exit;

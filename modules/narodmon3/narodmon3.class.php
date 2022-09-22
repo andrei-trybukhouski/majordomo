@@ -279,12 +279,16 @@ function usual(&$out) {
 			$send.="#".$this->config['SRV_NAME'];
 			$send.="\n";
 			for($i=0;$i<$total;$i++){
-				$val = round( getGlobal($properties[$i]['LINKED_OBJECT'].'.'.$properties[$i]['LINKED_PROPERTY']), 2);
+				//$val = round( getGlobal($properties[$i]['LINKED_OBJECT'].'.'.$properties[$i]['LINKED_PROPERTY']), 2);
+				$select = SQLSelect("SELECT * FROM `pvalues` WHERE `PROPERTY_NAME` = '".$properties[$i]['LINKED_OBJECT'].".".$properties[$i]['LINKED_PROPERTY']."'");
+				$val = round($select['0']['VALUE'], 2);
+				if((time() - strtotime($select['0']['UPDATED'])) < 6000){
+					$send.="#".$properties[$i]['MAC']."#".$val."#".$properties[$i]['TITLE']."\n";
 				
-				$send.="#".$properties[$i]['MAC']."#".$val."#".$properties[$i]['TITLE']."\n";
-				
-				$properties[$i]['UPDATED'] = date('Y-m-d H:i:s');
-				SQLUpdate($table, $properties[$i]);
+					$properties[$i]['UPDATED'] = date('Y-m-d H:i:s');
+					$properties[$i]['VALUE'] = $val;
+					SQLUpdate($table, $properties[$i]);
+				}
 			}
 		$send.="##";
 
@@ -559,6 +563,7 @@ nm_outdata -
  nm_outdata: MAC varchar(100) NOT NULL DEFAULT ''
  nm_outdata: LINKED_OBJECT varchar(100) NOT NULL DEFAULT ''
  nm_outdata: LINKED_PROPERTY varchar(100) NOT NULL DEFAULT ''
+ nm_outdata: VALUE varchar(100)
  nm_outdata: UPDATED datetime
  nm_outdata: ACTIVE int(3) DEFAULT 1  
  

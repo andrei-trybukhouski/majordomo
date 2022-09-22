@@ -8,7 +8,8 @@ $this->device_types=array(
             'temperature'=>array('DESCRIPTION'=>'Temperature'),
             'humidity'=>array('DESCRIPTION'=>'Humidity'),
             'SomebodyHere'=>array('DESCRIPTION'=>'Somebody in the room'),
-            'IdleDelay'=>array('DESCRIPTION'=>'Nobody here idle delay'),
+            'IdleDelay'=>array('DESCRIPTION'=>LANG_DEVICES_MOTION_TIMEOUT,'_CONFIG_TYPE'=>'text','_CONFIG_HELP'=>'SdRoomIdleDelay'),
+            'turnOffLightsOnIdle'=>array('DESCRIPTION'=>LANG_DEVICES_TURNOFF_LIGHTS_ON_IDLE,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdRoomIdleTurnoffLights'),
         ),
         'METHODS'=>array(
             'onActivity'=>array('DESCRIPTION'=>'Rooms Activity'),
@@ -25,11 +26,15 @@ $this->device_types=array(
             'aliveTimeout'=>array('DESCRIPTION'=>LANG_DEVICES_ALIVE_TIMEOUT,'_CONFIG_TYPE'=>'num','_CONFIG_HELP'=>'SdAliveTimeout'),
             'linkedRoom'=>array('DESCRIPTION'=>'LinkedRoom'),
             'updated'=>array('DESCRIPTION'=>'Updated Timestamp'),
+            'batteryOperated'=>array('DESCRIPTION'=>LANG_DEVICES_BATTERY_OPERATED,'_CONFIG_TYPE'=>'yesno', 'ONCHANGE'=>'batteryLevelUpdated'),
+            'batteryLevel'=>array('DESCRIPTION'=>LANG_DEVICES_BATTERY_LEVEL, 'ONCHANGE'=>'batteryLevelUpdated'),
+            'batteryWarning'=>array('DESCRIPTION'=>LANG_DEVICES_BATTERY_WARNING),
         ),
         'METHODS'=>array(
             'statusUpdated'=>array('DESCRIPTION'=>'Status updated event'),
             'logicAction'=>array('DESCRIPTION'=>'Logic Action'),
             'keepAlive'=>array('DESCRIPTION'=>'Alive update'),
+            'batteryLevelUpdated'=>array('DESCRIPTION'=>'Battery level updated'),
         ),
         'INJECTS'=>array(
             'OperationalModes'=>array(
@@ -49,11 +54,11 @@ $this->device_types=array(
         'PARENT_CLASS'=>'SDevices',
         'DESCRIPTION'=>'Controllable device',
         'PROPERTIES'=>array(
-            'groupEco'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_ECO,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdGroupEco'),
-            'groupEcoOn'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_ECO_ON,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdGroupEcoOn'),
-            'groupSunrise'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_SUNRISE,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdGroupSunrise'),
-            'groupSunset'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_SUNSET,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdGroupSunset'),
-            'groupNight'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_NIGHT,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdGroupNight'),
+            'groupEco'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_ECO,'_CONFIG_TYPE'=>'yesno','_CONFIG_RESTRICTIONS'=>1,'_CONFIG_HELP'=>'SdGroupEco'),
+            'groupEcoOn'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_ECO_ON,'_CONFIG_TYPE'=>'yesno','_CONFIG_RESTRICTIONS'=>1,'_CONFIG_HELP'=>'SdGroupEcoOn'),
+            'groupSunrise'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_SUNRISE,'_CONFIG_TYPE'=>'yesno','_CONFIG_RESTRICTIONS'=>1,'_CONFIG_HELP'=>'SdGroupSunrise'),
+            'groupSunset'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_SUNSET,'_CONFIG_TYPE'=>'yesno','_CONFIG_RESTRICTIONS'=>1,'_CONFIG_HELP'=>'SdGroupSunset'),
+            'groupNight'=>array('DESCRIPTION'=>LANG_DEVICES_GROUP_NIGHT,'_CONFIG_TYPE'=>'yesno','_CONFIG_RESTRICTIONS'=>1,'_CONFIG_HELP'=>'SdGroupNight'),
             'isActivity'=>array('DESCRIPTION'=>LANG_DEVICES_IS_ACTIVITY,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdIsActivity'),
             'loadType'=>array('DESCRIPTION'=>LANG_DEVICES_LOADTYPE,
                 '_CONFIG_TYPE'=>'select','_CONFIG_HELP'=>'SdLoadType',
@@ -144,7 +149,7 @@ $this->device_types=array(
             'disabled' =>array('DESCRIPTION'=>'Disabled'),
         ),
         'METHODS'=>array(
-            'setTargetTemperature'=>array('DESCRIPTION'=>'Set target temperature'),
+            'setTargetTemperature'=>array('DESCRIPTION'=>LANG_DEVICES_THERMOSTAT_SET_TARGET_TEMPERATURE,'_CONFIG_SHOW'=>1,'_CONFIG_REQ_VALUE'=>1),
             'valueUpdated'=>array('DESCRIPTION'=>'Value Updated'),
             'statusUpdated'=>array('DESCRIPTION'=>'Status Updated'),
             'tempUp'=>array('DESCRIPTION'=>'Increase target temperature'),
@@ -266,7 +271,7 @@ $this->device_types=array(
         'METHODS'=>array(
             'motionDetected'=>array('DESCRIPTION'=>'Motion Detected'),
             'updatePreview'=>array('DESCRIPTION'=>'Update preview code'),
-            'takeSnapshot'=>array('DESCRIPTION'=>'Takes snapshot'),
+            'takeSnapshot'=>array('DESCRIPTION'=>'Take snapshot','_CONFIG_SHOW'=>1),
             'takeSeries'=>array('DESCRIPTION'=>'Takes image series'),
         )
     ),
@@ -328,6 +333,7 @@ $this->device_types=array(
         'CLASS'=>'SLeak',
         'PROPERTIES'=>array(
             'notify_eliminated'=>array('DESCRIPTION'=>LANG_DEVICES_NOTIFY_ELIMINATED,'_CONFIG_TYPE'=>'yesno'),
+            'notify_msg_reminder'=>array('DESCRIPTION'=>LANG_DEVICES_MSG_REMINDER,'_CONFIG_TYPE'=>'text'),
             'blocked'=>array('DESCRIPTION'=>'Is blocked'),
         ),
         'METHODS'=>array(
@@ -484,7 +490,13 @@ $this->device_types=array(
         'CLASS'=>'SLightSensors',
         'PROPERTIES'=>array(
             'unit'=>array('DESCRIPTION'=>LANG_DEVICES_UNIT,'_CONFIG_TYPE'=>'text'),
+            'periodMinValue'=>array('DESCRIPTION'=>'Minimum value for period','ONCHANGE'=>'periodMinValueUpdated','KEEP_HISTORY'=>365),
+            'periodTime'=>array('DESCRIPTION'=>'Period to calculate minimum value (seconds)','_CONFIG_TYPE'=>'num','_CONFIG_HELP'=>'SdSensorPeriodTime'),
             ),
+        'METHODS'=>array(
+            'valueUpdated'=>array('DESCRIPTION'=>'Value Updated','CALL_PARENT'=>1),
+            'periodMinValueUpdated'=>array('DESCRIPTION'=>'Period Min value updated'),
+        ),
     ),
 );
 

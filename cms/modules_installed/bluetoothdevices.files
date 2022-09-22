@@ -1,0 +1,6 @@
+/var/www/html/.gitignore
+/var/www/html/templates/bluetoothdevices/bluetoothdevices.html
+/var/www/html/.gitattributes
+/var/www/html/modules/bluetoothdevices/bluetoothdevices.class.php
+/var/www/html/img/modules/bluetoothdevices.png
+/var/www/html/scripts/cycle_bluetoothdevices.php

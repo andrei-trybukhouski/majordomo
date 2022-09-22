@@ -2,7 +2,7 @@
 /*
 	Bluetooth Devices module for MajorDoMo
 	Author: Sergey Avdeev <avdeevsv91@gmail.com>
-	URL: https://github.com/avdeevsv91/majordomo-bluetoothdevices
+	URL: https://github.com/kasitoru/majordomo-bluetoothdevices
 */
 
 class bluetoothdevices extends module {
@@ -62,7 +62,7 @@ class bluetoothdevices extends module {
 		}
 		return FALSE;
 	}
-
+	
 	// Check programs version
 	private function check_programs_version($exe, $version) {
 		$results = FALSE;
@@ -73,7 +73,7 @@ class bluetoothdevices extends module {
 		}
 		return $results;
 	}
-
+	
 	// Bluetooth: reset
 	private function bluetooth_reset(&$messages=array()) {
 		$results = FALSE;
@@ -89,18 +89,47 @@ class bluetoothdevices extends module {
 		}
 		return $results;
 	}
-
+	
 	// Bluetooth: scan
 	private function bluetooth_scan(&$messages=array()) {
 		$results = array();
 		if(IsWindowsOS()) {
+			// Windows
+			// FIXME: does not find BLE devices
+			// FIXME: finds an offline device if it is paired
+			$devices_file = SERVER_ROOT.'/apps/bluetoothview/devices_'.uniqid().'.txt';
+			exec(SERVER_ROOT.'/apps/bluetoothview/bluetoothview.exe /stab "'.$devices_file.'"');
+			if(file_exists($devices_file)) {
+				if($data = LoadFile($devices_file)) {
+					$data = str_replace(chr(0), '', $data);
+					$data = str_replace("\r", '', $data);
+					$lines = explode("\n", $data);
+					$total = count($lines);
+					for($i=0; $i<$total; $i++) {
+						$fields = explode("\t", $lines[$i]);
+						$address = trim(strtolower($fields[2]));
+						$name = trim($fields[1]);
+						if(!empty($address)) {
+							$results[] = array(
+								'address'	=> $address,
+								'name'		=> $name,
+							);
+						}
+					}
+				} else {
+					$messages[] = array('time' => time(), 'text' => 'Error opening file "'.$devices_file.'"!');
+					$results = FALSE;
+				}
+				@unlink($devices_file);
+			} else {
+				$messages[] = array('time' => time(), 'text' => 'Missing file "'.$devices_file.'"!');
+				$results = FALSE;
+			}
 		} else {
 			// Linux
 			$data = array();
-			exec(($this->config['sudo']?'sudo ':'').'timeout -s INT 10s hcitool scan | grep ":"', $data);
-            sleep(1);
-			exec(($this->config['sudo']?'sudo ':'').'timeout -s INT 5s hcitool lescan | grep ":"', $data);
-            sleep(1);
+			exec(($this->config['sudo']?'sudo ':'').'hcitool scan | grep ":"', $data);
+			exec(($this->config['sudo']?'sudo ':'').'timeout -s INT 10s hcitool lescan | grep ":"', $data);
 			$total = count($data);
 			for($i=0; $i<$total; $i++) {
 				$data[$i] = trim($data[$i]);
@@ -116,32 +145,28 @@ class bluetoothdevices extends module {
 		}
 		return $results;
 	}
-
+	
 	// Bluetooth: hybrid
 	private function bluetooth_hybrid($address, &$messages=array()) {
 		$results = FALSE;
 		// Ping
-        sleep(1);
 		if(!$results && $this->bluetooth_ping($address, $messages)) {
 			$results = TRUE;
 		}
-        sleep(1);
 		// Discovery
 		if(!$results && $this->bluetooth_discovery($address, $messages)) {
 			$results = TRUE;
 		}
-        sleep(1);
 		// Connect
 		if(!$results && $this->bluetooth_connect($address, $messages)) {
 			$results = TRUE;
 		}
 		return $results;
 	}
-
+	
 	// Bluetooth: ping
 	private function bluetooth_ping($address, &$messages=array()) {
 		$results = FALSE;
-        echo date('Y/m/d H:i:s')." ping $address".PHP_EOL;
 		if(IsWindowsOS()) {
 			// Windows
 			$messages[] = array('time' => time(), 'text' => 'Method "ping" is not supported for Windows OS!');
@@ -157,28 +182,38 @@ class bluetoothdevices extends module {
 
 	// Bluetooth: discovery
 	private function bluetooth_discovery($address, &$messages=array()) {
-        echo date('Y/m/d H:i:s')." Discovery $address".PHP_EOL;
 		$devices = $this->bluetooth_scan($messages);
 		if(is_array($devices)) {
 			foreach($devices as $device) {
 				if($device['address'] == $address) {
-                    echo ' found '.$address;
 					return TRUE;
 				}
 			}
 		}
 		return FALSE;
 	}
-
+	
 	// Bluetooth: connect
 	private function bluetooth_connect($address, &$messages=array()) {
 		$results = FALSE;
-        echo date('Y/m/d H:i:s')." Connect $address".PHP_EOL;
+		if(IsWindowsOS()) {
+			// Windows
+			if($this->check_programs_version(SERVER_ROOT.'/apps/bluetoothview/BluetoothView.exe', '1.41')) {
+				// BluetoothView version >= 1.41
+				exec(SERVER_ROOT.'/apps/bluetoothview/bluetoothview.exe /try_to_connect '.$address, $data, $code);
+				if($code == 0) {
+					$results = TRUE;
+				}
+			} else {
+				$messages[] = array('time' => time(), 'text' => 'The current version of BluetoothView is lower than required (1.41)!');
+			}
+		} else {
+			// Linux
 			$data = exec(($this->config['sudo']?'sudo ':'').'hcitool cc '.$address.' 2>&1');
 			if(empty($data)) {
 				$results = TRUE;
 			}
-
+		}
 		return $results;
 	}
 
@@ -290,7 +325,7 @@ class bluetoothdevices extends module {
 			}
 		}
 	}
-
+	
 	// Settings
 	function settings_bluetoothdevices(&$out) {
 		// Save action
@@ -372,7 +407,7 @@ class bluetoothdevices extends module {
 		}
 		$out['USERS'] = SQLSelect('SELECT `ID`, `NAME` FROM `users` ORDER BY `NAME`');
 	}
-
+	
 	// Edit bluetooth device
 	function edit_bluetoothdevices(&$out, $id) {
 		// Get object data
@@ -412,7 +447,7 @@ class bluetoothdevices extends module {
 		}
 		$out['USERS'] = SQLSelect('SELECT `ID`, `NAME` FROM `users` ORDER BY `NAME`');
 	}
-
+	
 	// Delete bluetooth device
 	function delete_bluetoothdevices($id) {
 		SQLExec("DELETE FROM `history` WHERE `OBJECT_ID` = $id");
@@ -489,7 +524,7 @@ class bluetoothdevices extends module {
 			}
 		}
 	}
-
+	
 	// Cycle
 	function processCycle() {
 		if($objects = getObjectsByClass($this->classname)) {

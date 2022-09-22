@@ -6,7 +6,7 @@
      }
   var blockly = window.open('<#ROOTHTML#>3rdparty/googleblockly/?code_field=[#CODE_FIELD#]','BlocklyUpdated','scrollbars=no,width='+(screen.width-100)+',height='+(screen.height-200)+',left=50,top=100');
   blockly.creator=self;
-  blockly.focus();
+  blockly.focus(); 
   return false;
  }
 </script>
@@ -97,8 +97,8 @@ $(document).ready(function(){
 		matchBrackets: true,
 		indentUnit: 0,
 		tabSize: 4,
-
-		[#if TYPE=="php"#]
+		
+		[#if TYPE=="php" || TYPE=="html" || TYPE=="javascript"#]
 		enterMode: "indent",
 		undoDelay: 400,
 		lineWrapping: [#if SETTINGS_CODEEDITOR_WRAPLINES == 1#]true[#else#]false[#endif#],
@@ -106,14 +106,14 @@ $(document).ready(function(){
 		autofocus: [#if AUTOFOCUS == '0'#]false[#else#]true[#endif#],
 		[#if SETTINGS_CODEEDITOR_THEME != 'codemirror' && SETTINGS_CODEEDITOR_TURNONSETTINGS == '1'#]theme: "[#SETTINGS_CODEEDITOR_THEME#]",[#endif#]
 		[#endif#]
-
+		
 		[#if TYPE=="php"#]
 		mode: "text/x-php",
 		[#else TYPE#]
 		mode: "xml",
 		htmlMode: true,
 		[#endif TYPE#]
-
+		
 		indentWithTabs: false,
 		[#if TYPE=="php"#]autoCloseBrackets: [#if SETTINGS_CODEEDITOR_AUTOCLOSEQUOTES == 1#]true[#else#]false[#endif#],[#endif#]
 		foldGutter: true,
@@ -125,29 +125,29 @@ $(document).ready(function(){
 				} else {
 					$('nav').show();
 				}
-
+				
 				cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-
+				
 			},
-			"Ctrl-S": function(instance) {
+			"Ctrl-S": function(instance) { 
 				[#if SETTINGS_CODEEDITOR_AUTOSAVE != '0'#]ajaxAutosave('save');[#endif#]
 				//alert('[#CODE_FIELD#]');
 				$("[name='subm']").click();
 				return;
 			},
-			"Ctrl-E": function(cm) {
+			"Ctrl-E": function(cm) { 
 				ajaxAutosave('checkcode');
 				return;
 			},
-			"Ctrl-O": function(cm) {
+			"Ctrl-O": function(cm) { 
 				ajaxAutosave('save');
 				return;
 			},
-			"Ctrl-R": function(cm) {
+			"Ctrl-R": function(cm) { 
 				modalRestoreCode();
 				return;
 			},
-			"Ctrl-D": function(cm) {
+			"Ctrl-D": function(cm) { 
 				var current_cursor = cm.doc.getCursor();
 				var line_content = cm.doc.getLine(current_cursor.line);
 				CodeMirror.commands.goLineEnd(cm);
@@ -169,7 +169,7 @@ $(document).ready(function(){
 			"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }
 		}
 	});
-
+	
 	[#if TYPE=="php"#]
 		[#if SETTINGS_CODEEDITOR_TURNONSETTINGS == 1 && SETTINGS_CODEEDITOR_AUTOCOMPLETE == 1#]
 		if($('#mobileIndicator').is(':hidden')) {
@@ -183,21 +183,21 @@ $(document).ready(function(){
 					list: words.filter(w => w.toLowerCase().indexOf(fragment) >= 0),
 					from: range.anchor,
 					to: range.head
-
+					
 				});
 			});
-			CodeMirror.hint.ajax.async = false;
-
-
+			CodeMirror.hint.ajax.async = true;
+			
+			
 			CodeMirror.commands.autocomplete = function(mirror) {
-				mirror.showHint({
+				mirror.showHint({ 
 					hint: CodeMirror.hint.ajax,
 					completeSingle: true,
 					alignWithWord: true,
 					closeOnUnfocus: true,
 				});
 			};
-
+			
 			var ExcludedIntelliSenseTriggerKeys =
 			{
 				"8": "backspace",
@@ -266,13 +266,13 @@ $(document).ready(function(){
 			});
 		}
 		[#endif#]
-
-		editor.on('update', editor => {
+		
+		editor.on('update', editor => {			
 			anc = window.location.hash.replace("#","");
 			actualLineNumber = Number(anc.split('_')[1]);
-
+			
 			totalLine = editor.lineCount();
-
+			
 			classList = $('.CodeMirror').attr("class").split(' ');
 			if(!actualLineNumber) {
 				if(totalLine < [#SETTINGS_CODEEDITOR_MIXLINE#] && classList.indexOf('CodeMirror-fullscreen') == '-1') {
@@ -285,7 +285,7 @@ $(document).ready(function(){
 					} else {
 						$('.CodeMirror').attr('style', 'height: auto;');
 					}
-
+					
 				} else {
 					$('.CodeMirror').removeAttr('style');
 				}
@@ -293,7 +293,7 @@ $(document).ready(function(){
 				$('.CodeMirror').attr('style', 'height: auto;');
 			}
 		});
-
+		
 		[#if SETTINGS_CODEEDITOR_SHOWERROR == '1' AND SETTINGS_CODEEDITOR_TURNONSETTINGS == '1'#]
 		//editor.on('focus', editor => {
 		//	$('.cm-error').remoteAddr('class');
@@ -317,7 +317,7 @@ $(document).ready(function(){
 			//Найдем где курсор в редакторе
 			//getCursorStart = editor.getCursor().line-1;
 			//getCursorEnd = getCursorStart+2;
-
+			
 			//if(getCursorStart <= actualLineNumber && getCursorEnd >= actualLineNumber) {
 				//Удалим класс
 			//	myEditor = $(".CodeMirror");
@@ -336,7 +336,7 @@ $(document).ready(function(){
 			document.cookie = 'autosavetimerid='+setTimeout(function() { ajaxAutosave('save'); }, [#SETTINGS_CODEEDITOR_AUTOSAVE#]000);
 		});
 		[#endif#]
-		[#endif#]
+		[#endif#]	
 	[#endif#]
 });
 
@@ -349,7 +349,7 @@ function getCookie(name) {
 }
 
 function escapeHtml(text, type='scape') {
-	if(type == 'scape') {
+	if(type == 'scape') { 
 		var map = {
 			'&': '!amp',
 			'<': '!lt',
@@ -365,7 +365,7 @@ function escapeHtml(text, type='scape') {
 			"+": '!plus',
 			"-": '!minus',
 		};
-
+		
 		return text.replace(/[&<>()\+\-#;\n\"']/g, function(m) { return map[m]; });
 	} else if(type == 'unscape') {
 		var map = {
@@ -383,7 +383,7 @@ function escapeHtml(text, type='scape') {
 			"!plus": '+',
 			"!minus": '-',
 		};
-
+		
 		return text.replace(/!amp|!lt|!gt|!quot|!039|!lpar|!rpar|!bsol|!num|!endline|!newline|!plus|!minus/g, function(m) { return map[m]; });
 	}
 }
@@ -394,7 +394,7 @@ function ajaxAutosave(action) {
 	md = $('input[name*="md"]:eq(2)').val();
 	code = editor.getValue();
 	code = escapeHtml(code);
-
+	
 	$.ajax({
 		type: "POST",
 		url: "/modules/blockly_code/autosave.php",
@@ -402,7 +402,7 @@ function ajaxAutosave(action) {
 		success: function(responce){
 			responce = JSON.parse(responce);
 			if(responce.status != 'ok') return;
-
+			
 			if(action == 'checkcode') {
 				$('#autosave_check_code_div').show('slow');
 				if(responce.msg) {
@@ -418,7 +418,7 @@ function ajaxAutosave(action) {
 			if(action == 'restore') {
 				let i = 0;
 				responseArray = responce.msg;
-
+				
 				$("#restoreCodeList").html('');
 				while (i <= responseArray.length) {
 					$("#restoreCodeList").append('<tr><th scope="row" style="vertical-align: middle;">'+responseArray[i].name+'</th><td style="vertical-align: middle;">'+responseArray[i].create+'</td><td style="cursor:pointer;vertical-align: middle;"><a href="javascript://" onclick="seeCodeFunc(\''+responseArray[i].code+'\')"><i class="glyphicon glyphicon-eye-open" style="font-size: 1.5rem;"></i></a></td><td style="vertical-align: middle;"><button type="button" class="btn btn-warning btn-xs" onclick="if(confirm(\'<#LANG_ARE_YOU_SURE#>\')) setValueEditor(\''+responseArray[i].code+'\');"><#LANG_CODEEDITOR_RESTORE#></button></td></tr>');
@@ -426,7 +426,7 @@ function ajaxAutosave(action) {
 				}
 			}
 		}
-	});
+	});	
 }
 
 function setValueEditor(code) {
@@ -470,14 +470,14 @@ function modalRestoreCode() {
 								</tr>
 							</thead>
 							<tbody id="restoreCodeList">
-
+							
 							</tbody>
 						</table>
 					</div>
-
+					
 					<div id="seeRestoreCodeDiv" style="display:none;">
 						<textarea id="seeRestoreCode" style="width: 100%;height: 300px;border: 1px solid #ddd;padding: 5px;border-radius: 5px;resize: none;" readonly>
-
+							
 						</textarea>
 						<center>
 							<button type="button" class="btn btn-default btn-sm" style="margin-top: 15px;" onclick="$('#seeRestoreCodeDiv').hide();$('#restoreCodeTable').show();"><#LANG_BACK#></button>
@@ -486,7 +486,7 @@ function modalRestoreCode() {
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal"><#LANG_CODEEDITOR_CLOSE_BTN#></button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"><#LANG_CODEEDITOR_CLOSE_BTN#></button>	
 			</div>
 		</div>
 	</div>
@@ -509,7 +509,7 @@ function modalRestoreCode() {
     <table id="devices_table" cellpadding="5" cellspacing="5">
 
     </table>
-
+	
 	<!--- Временный костыль, дабы инициировать загрузку модуля  --->
 	<input type="button" class="btn btn-primary btn-sm" value="<#LANG_PERIOD_CUSTOM#> <#LANG_DEVICE#>" onclick="$('#add_device_id').select2();$(this).hide();$('#choice_device').show();">
 	<div id="choice_device" style="display: none;">
@@ -521,7 +521,7 @@ function modalRestoreCode() {
 		</select>
 		<input type="button" name="add_device" class="btn btn-default btn-sm" value="<#LANG_ADD#>" onclick="return addDevice();">
 	</div>
-
+	
     <script type="text/javascript">
         var devices_data=[];
         var savedJson=$('#xml_code').val();
@@ -543,7 +543,6 @@ function modalRestoreCode() {
             }
             $('#[#CODE_FIELD#]').val(result_code);
             $('#xml_code').val(JSON.stringify(devices_data));
-            //alert(result_code);
         }
         function renderView() {
             $("#devices_table tr").remove();

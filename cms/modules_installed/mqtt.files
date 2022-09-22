@@ -1,0 +1,16 @@
+/var/www/html/templates/mqtt/mqtt_edit.html
+/var/www/html/templates/mqtt/mqtt.html
+/var/www/html/templates/mqtt/tree_view.html
+/var/www/html/templates/mqtt/action_admin.html
+/var/www/html/templates/mqtt/tree_view.tpl
+/var/www/html/templates/mqtt/mqtt_search_admin.html
+/var/www/html/templates/mqtt/list_view.html
+/var/www/html/templates/mqtt/mqtt_search_site.html
+/var/www/html/modules/mqtt/mqtt_edit.inc.php
+/var/www/html/modules/mqtt/mqtt_search.inc.php
+/var/www/html/modules/mqtt/mqtt.class.php
+/var/www/html/languages/mqtt_ua.php
+/var/www/html/languages/mqtt_ru.php
+/var/www/html/languages/mqtt_default.php
+/var/www/html/img/modules/mqtt.png
+/var/www/html/scripts/cycle_mqtt.php

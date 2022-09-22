@@ -61,6 +61,7 @@ class TelegramBot
     const CHANNEL_POST = 'channel_post';
 
     private $bot_token = '';
+    private $ip_ver = CURL_IPRESOLVE_WHATEVER;
     private $data = [];
     private $updates = [];
     private $proxy = '';
@@ -74,13 +75,14 @@ class TelegramBot
      * \param $bot_token the bot token
      * \return an instance of the class.
      */
-    public function __construct($bot_token, $proxyUrl = '', $proxyPwd = '', $proxyType = CURLPROXY_SOCKS5)
+    public function __construct($bot_token, $ip_ver, $proxyUrl = '', $proxyPwd = '', $proxyType = CURLPROXY_SOCKS5)
     {
         $this->bot_token = $bot_token;
+        $this->ip_ver = $ip_ver;
         $this->setProxy($proxyUrl,$proxyPwd,$proxyType);
         $this->data = $this->getData();
     }
-    
+
     public function setProxy( $proxyUrl = '', $proxyPwd = '', $proxyType = CURLPROXY_SOCKS5)
     {
         $this->proxy = $proxyUrl;
@@ -648,7 +650,7 @@ class TelegramBot
     {
         return $this->endpoint('sendLocation', $content);
     }
-    
+
     /// Send Media Group
     /**
      * Use this method to send a group of photos or videos as an album. On success, an array of the sent <a href="https://core.telegram.org/bots/api#message">Messages</a> is returned.<br/>Values inside $content:<br/>
@@ -691,7 +693,7 @@ class TelegramBot
     {
         return $this->endpoint('sendMediaGroup', $content);
     }
-    
+
     /// Send Venue
 
     /**
@@ -1378,6 +1380,53 @@ class TelegramBot
     }
 
     /**
+     * Use this method to edit animation, audio, document, photo, or video messages. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited <a href="https://core.tlgr.org/bots/api#message">Message</a> is returned, otherwise <em>True</em> is returned.</p>
+     * <table>
+     * <tr>
+     * <td><strong>Parameters</strong></td>
+     * <td><strong>Type</strong></td>
+     * <td><strong>Required</strong></td>
+     * <td><strong>Description</strong></td>
+     * </tr>
+     * <tbody>
+     * <tr>
+     * <td>chat_id</td>
+     * <td>Integer or String</td>
+     * <td>Optional</td>
+     * <td>Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</td>
+     * </tr>
+     * <tr>
+     * <td>message_id</td>
+     * <td>Integer</td>
+     * <td>Optional</td>
+     * <td>Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</td>
+     * </tr>
+     * <tr>
+     * <td>inline_message_id</td>
+     * <td>String</td>
+     * <td>Optional</td>
+     * <td>Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message</td>
+     * </tr>
+     * <tr>
+     * <td>media</td>
+     * <td><a href="https://core.tlgr.org/bots/api#inputmedia">InputMedia</a></td>
+     * <td>Yes</td>
+     * <td>A JSON-serialized object for a new media content of the message</td>
+     * </tr>
+     * <tr>
+     * <td>reply_markup</td>
+     * <td><a href="https://core.tlgr.org/bots/api#inlinekeyboardmarkup">InlineKeyboardMarkup</a></td>
+     * <td>Optional</td>
+     * <td>A JSON-serialized object for a new <a href="https://core.tlgr.org/bots#inline-keyboards-and-on-the-fly-updating">inline keyboard</a>.</td>
+     * </tr>
+     * </table>
+	 */
+    public function editMessageMedia(array $content)
+    {
+        return $this->endpoint('editMessageMedia', $content);
+    }
+
+    /**
      * Use this method to edit only the reply markup of messages sent by the bot or via the bot (for <a href="https://core.telegram.org/bots/api#inline-mode">inline bots</a>).  On success, if edited message is sent by the bot, the edited <a href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise <em>True</em> is returned.<br/>Values inside $content:<br/>
      * <table>
      * <tr>
@@ -1429,9 +1478,9 @@ class TelegramBot
     public function downloadFile($telegram_file_path, $local_file_path)
     {
         $file_url = 'https://api.telegram.org/file/bot'.$this->bot_token.'/'.$telegram_file_path;
-        
+
         $fp = fopen ($local_file_path, 'w+');
-         
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $file_url);
         curl_setopt($ch, CURLOPT_TIMEOUT, 50);
@@ -1439,14 +1488,15 @@ class TelegramBot
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	
+        curl_setopt($ch, CURLOPT_IPRESOLVE, $this->ip_ver);
+
         if ($this->proxy!= '')
         {
             curl_setopt($ch, CURLOPT_PROXYTYPE, $this->proxytype);
             curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
             curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxypwd);
         }
-                
+
         curl_setopt($ch, CURLOPT_FILE, $fp);
         $result = curl_exec($ch);
         if ($result === false) {
@@ -2938,7 +2988,8 @@ class TelegramBot
         }
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        
+        curl_setopt($ch, CURLOPT_IPRESOLVE, $this->ip_ver);
+
         $result = curl_exec($ch);
         if ($result === false) {
             $result = json_encode(['ok'=>false, 'curl_error_code' => curl_errno($ch), 'curl_error' => curl_error($ch)]);

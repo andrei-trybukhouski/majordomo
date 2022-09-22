@@ -1,0 +1,4 @@
+2021/12/06 23:59:17 Running bluetooth scanner
+ERROR: http://
+2006: MySQL server has gone away<br>SELECT * FROM cached_values WHERE KEYWORD = 'mjd:btdev_45e15cd8.lasttimestamp'
+

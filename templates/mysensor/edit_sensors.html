@@ -1,0 +1,102 @@
+<br/>
+<p>
+<a href="?view_mode=sensor_add&id=[#ID#]" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> <#LANG_ADD_NEW_RECORD#></a>
+<a href="?tab=log&id=[#ID#]&gid=[#GID#]&nid=[#NID#]&filter=Gate:[#GID#]; Node:[#NID#];" target="_blank" class="btn btn-default" title="Log"><i class="glyphicon glyphicon-info-sign"></i></a>
+</p> 
+<form action="?" method="post" enctype="multipart/form-data" name="frmEdit">
+<table border=0 align=center cellpadding=3>
+[#if OK#]
+<tr>
+ <td colspan=2 align=center>
+  <font color="green"><#LANG_DATA_SAVED#></font>
+ </td>
+</tr>
+[#endif OK#]
+[#if ERR#]
+<tr>
+ <td colspan=2 align=center>
+  <font color="red"><#LANG_FILLOUT_REQURED#></font>
+ </td>
+</tr>
+[#endif ERR#]
+
+[#if SENSORS#]
+
+<script language="javascript">
+ function setProperty(prop_id, current_value) {
+  var new_value=prompt("Please enter new value", current_value);
+  if (new_value!=null) {
+   var url="?id=<#ID#>&edit_mode=<#EDIT_MODE#>&view_mode=<#VIEW_MODE#>&tab=<#TAB#>&mode=setvalue";
+   window.location=url+'&prop_id='+prop_id+"&new_value="+new_value;
+  }
+  return false;
+ }
+</script>
+
+<tr> 
+ <td valign="top">
+  <table width="100%" border="1" cellpadding="2">
+   <tr>
+    <td valign="top"><b><#LANG_SENSOR#></b></td>	
+    <td valign="top"><b><#LANG_TYPE#></b></td>
+  	<td valign="top"><b><#LANG_MORE_INFO#></b></td>
+    <td valign="top"><b><#LANG_UPDATED#></b></td>   
+    <td valign="top"><b><#LANG_VALUE#></b></td>
+	  <td valign="top">&nbsp;</td>
+	  <td valign="top"><b><#LANG_DEVICE#></b></td>
+    <td valign="top"><b><#LANG_LINKED_OBJECT#></b></td>
+    <td valign="top"><b><#LANG_LINKED_PROPERTY#></b></td>
+    <td valign="top"><b>ACK</b></td>
+		<td valign="top"><b>REQ</b></td>
+    <td valign="top">&nbsp;</td>
+   </tr>
+   [#begin SENSORS#]
+   <tr>
+    <td valign="top" [#if SDESCR!=""#]title="[#SDESCR#]"[#endif#]><b>[#SID#]</b>[#if STITLE!=""#]<br/>[#STITLE#][#endif#]</td>
+    <td valign="top" [#if SUBDESCR!=""#]title="[#SUBDESCR#]"[#endif#]>[#SUBTYPE#][#if SUBTITLE!=""#]<br/>[#SUBTITLE#][#endif#]</td>
+	  <td valign="top">[#NOTE#]</td>
+    <td valign="top">[#UPDATED#]</td>
+    <td valign="top">[#VAL#]</td>
+	  <td valign="top">
+      <a href="#" onClick="return setProperty('[#ID#]', '[#VALUE#]')"><#LANG_SETVALUE#></a><br/>
+      <a href="?data_source=&view_mode=node_edit&id=[#PID#]&tab=sensors&mode=cmd&gid=[#GID#]&data=[#NID#];[#SID#];2;0;[#SUBTYPE#];0"><#LANG_REQUEST#></a><br/>
+    </td>
+    <td valign="top">     
+      [#module name="devices" action="link" type="<#SENSORS.SDEVICE_TYPE#>" prefix="Mysensors" source_table="msnodeval" source_table_id="<#SENSORS.ID#>" linked_object="<#SENSORS.LINKED_OBJECT#>"#]
+    </td>
+    <td valign="top"><input type="text" name="linked_object[#ID#]" id="linked_object[#ID#]" value="[#LINKED_OBJECT#]"></td>
+    <td valign="top"><input type="text" name="linked_property[#ID#]" id="linked_property[#ID#]" value="[#LINKED_PROPERTY#]">
+    <td valign="top"><input type="checkbox" name="ack[#ID#]" value="1"[#if ACK="1"#] checked[#endif#]></td>
+	<td valign="top"><input type="checkbox" name="req[#ID#]" value="1"[#if REQ="1"#] checked[#endif#]></td>
+    [#module name="linkedobject" object_field="linked_object<#SENSORS.ID#>" property_field="linked_property<#SENSORS.ID#>"#]
+    </td>  
+    <td><a href="?view_mode=sensor_delete&id=[#ID#]&pid=[#PID#]" onClick="return confirm('<#ARE_YOU_SURE#>')" class="btn btn-default btn-sm" title="<#LANG_DELETE#>"><i class="glyphicon glyphicon-remove"></i></a></td>
+   </tr>
+   [#end SENSORS#]
+  </table>
+ </td>
+</tr>
+[#endif SENSORS#]
+
+<tr> 
+ <td align=center> 
+ <input type="submit" name="subm" value="<#LANG_SUBMIT#>"> 
+ &nbsp;
+ <a href="?"><#LANG_CANCEL#></a>
+ </td>
+</tr>
+</table>
+
+<input type="hidden" name="id" value="<#ID#>">
+<input type="hidden" name="view_mode" value="<#VIEW_MODE#>">
+<input type="hidden" name="edit_mode" value="<#EDIT_MODE#>">
+<input type="hidden" name="mode" value="update">
+<input type="hidden" name="data_source" value="<#DATA_SOURCE#>">
+<input type="hidden" name="tab" value="<#TAB#>">
+</form>
+</p>
+
+<ul>
+<li><#LANG_ACK_INFO#></li>
+<li><#LANG_REQ_INFO#></li>
+</ul>

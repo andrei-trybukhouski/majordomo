@@ -1,0 +1,1568 @@
+mysqld, Version: 10.4.19-MariaDB-1:10.4.19+maria~bionic-log (mariadb.org binary distribution). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time		    Id Command	Argument
+210624  9:32:29	     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		    60 Query	SELECT * FROM sqllogs WHERE 1 ORDER BY ID DESC
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516349', `UPDATED`='2021-06-24 09:32:29', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516349')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516349', 'PostProperty', '2021-06-24 09:32:29')
+		    33 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    33 Query	SELECT * FROM objects WHERE ID=7
+		    33 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    33 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_telegramRun'
+		    33 Query	SELECT * FROM properties WHERE ID='9787'
+		    33 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9787 AND OBJECT_ID=7
+		    33 Query	UPDATE `pvalues` SET `ID`='9822', `PROPERTY_ID`='9787', `OBJECT_ID`='7', `VALUE`='1624516349', `UPDATED`='2021-06-24 09:32:29', `PROPERTY_NAME`='ThisComputer.cycle_telegramRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9822'
+		    33 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_telegramRun', '1624516349')
+		    33 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_telegramRun', '1624516349', 'PostProperty', '2021-06-24 09:32:29')
+		    33 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'telegram'
+210624  9:32:30	    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    59 Change user	user@172.1.0.1 on db_terminal
+		    59 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    59 Query	SELECT NAME, VALUE FROM settings
+		    59 Query	SET time_zone = '+03:00'
+		    59 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    59 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:30', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    59 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    59 Query	SELECT * FROM users ORDER BY NAME
+		    59 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    59 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    59 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    57 Change user	user@172.1.0.1 on db_terminal
+		    57 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    57 Query	SELECT NAME, VALUE FROM settings
+		    57 Query	SET time_zone = '+03:00'
+		    57 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    57 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:30', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    57 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    57 Query	SELECT * FROM users ORDER BY NAME
+		    57 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    57 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    57 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:30'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:30'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    56 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    56 Query	SELECT * FROM objects WHERE ID=7
+		    56 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_websocketsRun'
+		    56 Query	SELECT * FROM properties WHERE ID='9790'
+		    56 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9790 AND OBJECT_ID=7
+		    56 Query	UPDATE `pvalues` SET `ID`='9825', `PROPERTY_ID`='9790', `OBJECT_ID`='7', `VALUE`='1624516350', `UPDATED`='2021-06-24 09:32:30', `PROPERTY_NAME`='ThisComputer.cycle_websocketsRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9825'
+		    56 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_websocketsRun', '1624516350')
+		    56 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_websocketsRun', '1624516350', 'PostProperty', '2021-06-24 09:32:30')
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.WSClientsTotal'
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516350', `UPDATED`='2021-06-24 09:32:30', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516350')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516350', 'PostProperty', '2021-06-24 09:32:30')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:30', '2021-06-24 10:07:30')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516350', `UPDATED`='2021-06-24 09:32:30', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516350')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516350', 'PostProperty', '2021-06-24 09:32:30')
+210624  9:32:31	    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    61 Change user	user@172.1.0.1 on db_terminal
+		    61 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    61 Query	SELECT NAME, VALUE FROM settings
+		    61 Query	SET time_zone = '+03:00'
+		    61 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    61 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:31', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    61 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    61 Query	SELECT * FROM users ORDER BY NAME
+		    61 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    61 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    61 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:31'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:31'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516351', `UPDATED`='2021-06-24 09:32:31', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516351')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516351', 'PostProperty', '2021-06-24 09:32:31')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:31', '2021-06-24 10:07:31')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516351', `UPDATED`='2021-06-24 09:32:31', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516351')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516351', 'PostProperty', '2021-06-24 09:32:31')
+210624  9:32:32	    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    58 Change user	user@172.1.0.1 on db_terminal
+		    58 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    58 Query	SELECT NAME, VALUE FROM settings
+		    58 Query	SET time_zone = '+03:00'
+		    58 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    58 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:32', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    58 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    58 Query	SELECT * FROM users ORDER BY NAME
+		    58 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    58 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    58 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:32'
+		    35 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    35 Query	SELECT * FROM objects WHERE ID=7
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:32'
+		    35 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    35 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_narodmon3Run'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    35 Query	SELECT * FROM properties WHERE ID='9789'
+		    35 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9789 AND OBJECT_ID=7
+		    35 Query	UPDATE `pvalues` SET `ID`='9824', `PROPERTY_ID`='9789', `OBJECT_ID`='7', `VALUE`='1624516352', `UPDATED`='2021-06-24 09:32:32', `PROPERTY_NAME`='ThisComputer.cycle_narodmon3Run', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9824'
+		    35 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_narodmon3Run', '1624516352')
+		    35 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_narodmon3Run', '1624516352', 'PostProperty', '2021-06-24 09:32:32')
+		    35 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'narodmon3'
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516352', `UPDATED`='2021-06-24 09:32:32', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516352')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516352', 'PostProperty', '2021-06-24 09:32:32')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:32', '2021-06-24 10:07:32')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516352', `UPDATED`='2021-06-24 09:32:32', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516352')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516352', 'PostProperty', '2021-06-24 09:32:32')
+210624  9:32:33	    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:33'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:33'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    56 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    56 Query	SELECT * FROM objects WHERE ID=7
+		    56 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_websocketsRun'
+		    56 Query	SELECT * FROM properties WHERE ID='9790'
+		    56 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9790 AND OBJECT_ID=7
+		    56 Query	UPDATE `pvalues` SET `ID`='9825', `PROPERTY_ID`='9790', `OBJECT_ID`='7', `VALUE`='1624516353', `UPDATED`='2021-06-24 09:32:33', `PROPERTY_NAME`='ThisComputer.cycle_websocketsRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9825'
+		    56 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_websocketsRun', '1624516353')
+		    56 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_websocketsRun', '1624516353', 'PostProperty', '2021-06-24 09:32:33')
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.WSClientsTotal'
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516353', `UPDATED`='2021-06-24 09:32:33', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516353')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516353', 'PostProperty', '2021-06-24 09:32:33')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:33', '2021-06-24 10:07:33')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516353', `UPDATED`='2021-06-24 09:32:33', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516353')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516353', 'PostProperty', '2021-06-24 09:32:33')
+		    27 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    27 Query	SELECT * FROM objects WHERE ID=7
+		    27 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mainRun'
+		    27 Query	SELECT * FROM properties WHERE ID='9783'
+		    27 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9783 AND OBJECT_ID=7
+		    27 Query	UPDATE `pvalues` SET `ID`='9818', `PROPERTY_ID`='9783', `OBJECT_ID`='7', `VALUE`='1624516353', `UPDATED`='2021-06-24 09:32:33', `PROPERTY_NAME`='ThisComputer.cycle_mainRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9818'
+		    27 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mainRun', '1624516353')
+		    27 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mainRun', '1624516353', 'PostProperty', '2021-06-24 09:32:33')
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.started_time'
+		    27 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    27 Query	SELECT * FROM objects WHERE ID=7
+		    27 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.uptime'
+		    27 Query	SELECT * FROM properties WHERE ID='4085'
+		    27 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=4085 AND OBJECT_ID=7
+		    27 Query	UPDATE `pvalues` SET `ID`='4079', `PROPERTY_ID`='4085', `OBJECT_ID`='7', `VALUE`='32371', `UPDATED`='2021-06-24 09:32:33', `PROPERTY_NAME`='ThisComputer.uptime', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '4079'
+		    27 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.uptime', '32371')
+		    27 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.uptime', '32371', 'PostProperty', '2021-06-24 09:32:33')
+		    27 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    27 Query	SELECT * FROM objects WHERE ID=7
+		    27 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.uptimeText'
+		    27 Query	SELECT * FROM properties WHERE ID='6116'
+		    27 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=6116 AND OBJECT_ID=7
+		    27 Query	UPDATE `pvalues` SET `ID`='6198', `PROPERTY_ID`='6116', `OBJECT_ID`='7', `VALUE`='8h 59m', `UPDATED`='2021-06-24 09:32:33', `PROPERTY_NAME`='ThisComputer.uptimeText', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '6198'
+		    27 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.uptimeText', '8h 59m')
+		    27 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.uptimeText', '8h 59m', 'PostProperty', '2021-06-24 09:32:33')
+210624  9:32:34	    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    60 Change user	user@172.1.0.1 on db_terminal
+		    60 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    60 Query	SELECT NAME, VALUE FROM settings
+		    60 Query	SET time_zone = '+03:00'
+		    60 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    60 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:34', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    60 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    60 Query	SELECT * FROM users ORDER BY NAME
+		    60 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    60 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    60 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    59 Change user	user@172.1.0.1 on db_terminal
+		    59 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    59 Query	SELECT NAME, VALUE FROM settings
+		    59 Query	SET time_zone = '+03:00'
+		    59 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    59 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:34', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    59 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    59 Query	SELECT * FROM users ORDER BY NAME
+		    59 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    59 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    59 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    57 Change user	user@172.1.0.1 on db_terminal
+		    57 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    57 Query	SELECT NAME, VALUE FROM settings
+		    57 Query	SET time_zone = '+03:00'
+		    57 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    57 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:34', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    57 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    57 Query	SELECT * FROM users ORDER BY NAME
+		    11 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    11 Query	SELECT * FROM objects WHERE ID=7
+		    57 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    11 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    57 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_statesRun'
+		    11 Query	SELECT * FROM properties WHERE ID='9776'
+		    11 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9776 AND OBJECT_ID=7
+		    57 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    11 Query	UPDATE `pvalues` SET `ID`='9811', `PROPERTY_ID`='9776', `OBJECT_ID`='7', `VALUE`='1624516354', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='ThisComputer.cycle_statesRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9811'
+		    11 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_statesRun', '1624516354')
+		    11 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_statesRun', '1624516354', 'PostProperty', '2021-06-24 09:32:34')
+		    11 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'Security'
+		    11 Query	SELECT * FROM objects WHERE ID=16
+		    11 Query	SELECT ID,TITLE FROM classes WHERE ID=21
+		    11 Query	SELECT ID FROM methods WHERE OBJECT_ID='16' AND TITLE = 'checkState'
+		    11 Query	SELECT PARENT_ID FROM classes WHERE ID='21'
+		    11 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='21' AND OBJECT_ID=0
+		    11 Query	SELECT * FROM methods WHERE ID='59'
+		    11 Query	UPDATE `methods` SET `ID`='59', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='', `EXECUTED_PARAMS`='{\"ORIGINAL_OBJECT_TITLE\":\"Security\"}' WHERE ID = '59'
+		    11 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'System'
+		    11 Query	SELECT * FROM objects WHERE ID=17
+		    11 Query	SELECT ID,TITLE FROM classes WHERE ID=21
+		    11 Query	SELECT ID FROM methods WHERE OBJECT_ID='17' AND TITLE = 'checkState'
+		    11 Query	SELECT * FROM methods WHERE ID='73'
+		    11 Query	UPDATE `methods` SET `ID`='73', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='' WHERE ID = '73'
+		    11 Query	SELECT PARENT_ID FROM classes WHERE ID='21'
+		    11 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='21' AND OBJECT_ID=0
+		    11 Query	SELECT * FROM methods WHERE ID='59'
+		    11 Query	UPDATE `methods` SET `ID`='59', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='', `EXECUTED_PARAMS`='{\"ORIGINAL_OBJECT_TITLE\":\"System\"}' WHERE ID = '59'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:System.stateDetails'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:System.stateColor'
+		    11 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'Communication'
+		    11 Query	SELECT * FROM objects WHERE ID=18
+		    11 Query	SELECT ID,TITLE FROM classes WHERE ID=21
+		    11 Query	SELECT ID FROM methods WHERE OBJECT_ID='18' AND TITLE = 'checkState'
+		    11 Query	SELECT * FROM methods WHERE ID='74'
+		    11 Query	UPDATE `methods` SET `ID`='74', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='' WHERE ID = '74'
+		    11 Query	SELECT PARENT_ID FROM classes WHERE ID='21'
+		    11 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='21' AND OBJECT_ID=0
+		    11 Query	SELECT * FROM methods WHERE ID='59'
+		    11 Query	UPDATE `methods` SET `ID`='59', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='', `EXECUTED_PARAMS`='{\"ORIGINAL_OBJECT_TITLE\":\"Communication\"}' WHERE ID = '59'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:google_dns.online'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:wifi_rtr.online'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:Communication.stateDetails'
+		    11 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:Communication.stateColor'
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    61 Change user	user@172.1.0.1 on db_terminal
+		    61 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    61 Query	SELECT NAME, VALUE FROM settings
+		    61 Query	SET time_zone = '+03:00'
+		    61 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    61 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:34', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    61 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    61 Query	SELECT * FROM users ORDER BY NAME
+		    61 Query	SELECT * FROM commands WHERE ID='178'
+		    61 Query	INSERT INTO `actions_log`(`ADDED`, `USER`, `TERMINAL`, `ACTION_TYPE`, `TITLE`, `IP`) VALUES('2021-06-24 09:32:34', 'andrey', 'homepc', 'menu_clicked', 'nightLight', '192.168.1.2')
+		    61 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    61 Query	SELECT * FROM objects WHERE ID=314
+		    61 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    61 Query	SELECT ID FROM methods WHERE OBJECT_ID='314' AND TITLE = 'Switch'
+		    61 Query	SELECT PARENT_ID FROM classes WHERE ID='105'
+		    61 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='105' AND OBJECT_ID=0
+		    61 Query	SELECT * FROM methods WHERE ID='295'
+		    61 Query	UPDATE `methods` SET `ID`='295', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='/ajax/commands.html?op=value_changed&item_id=178&new_value=1', `EXECUTED_PARAMS`='{\"VALUE\":\"1\",\"OLD_VALUE\":\"0\",\"ORIGINAL_OBJECT_TITLE\":\"nightLight\"}' WHERE ID = '295'
+		    61 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.cmnd'
+		    61 Query	SELECT * FROM properties WHERE ID='3873'
+		    61 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3873 AND OBJECT_ID=314
+		    61 Query	UPDATE `pvalues` SET `ID`='5892', `PROPERTY_ID`='3873', `OBJECT_ID`='314', `VALUE`='1', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='nightLight.cmnd', `LINKED_MODULES`='mqtt', `SOURCE`='/ajax/commands.html?op=value_changed&item_id=178&new_value=1' WHERE ID = '5892'
+		    61 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.cmnd', '1')
+		    58 Change user	user@172.1.0.1 on db_terminal
+		    58 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    58 Query	SELECT NAME, VALUE FROM settings
+		    58 Query	SET time_zone = '+03:00'
+		    58 Query	SELECT ID FROM mqtt WHERE READONLY=0 AND LINKED_OBJECT LIKE 'nightLight' AND LINKED_PROPERTY LIKE 'cmnd'
+		    58 Query	SELECT * FROM mqtt WHERE ID='57149'
+		    58 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'mqtt'
+		    58 Query	UPDATE `mqtt` SET `ID`='57149', `TITLE`='cmnd/nightLight/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:34', `VALUE`='1', `PATH`='cmnd/nightLight/POWER', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='cmnd', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57149'
+		    61 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.cmnd', '1', 'PostProperty', '2021-06-24 09:32:34')
+		    60 Change user	user@172.1.0.1 on db_terminal
+		    60 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    60 Query	SELECT NAME, VALUE FROM settings
+		    60 Query	SET time_zone = '+03:00'
+		    60 Query	SELECT * FROM mqtt WHERE PATH = 'cmnd/nightLight/POWER'
+		    60 Query	UPDATE `mqtt` SET `ID`='57149', `TITLE`='cmnd/nightLight/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:34', `VALUE`='1', `PATH`='cmnd/nightLight/POWER', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='cmnd', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57149'
+		    60 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    60 Query	SELECT * FROM objects WHERE ID=314
+		    60 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    60 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.cmnd'
+		    60 Query	SELECT * FROM properties WHERE ID='3873'
+		    60 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3873 AND OBJECT_ID=314
+		    60 Query	UPDATE `pvalues` SET `ID`='5892', `PROPERTY_ID`='3873', `OBJECT_ID`='314', `VALUE`='1', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='nightLight.cmnd', `LINKED_MODULES`='mqtt', `SOURCE`='/api.php/module/mqtt?topic=cmnd/nightLight/POWER&msg=1&no_session=1' WHERE ID = '5892'
+		    60 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.cmnd', '1')
+		    60 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.cmnd', '1', 'PostProperty', '2021-06-24 09:32:34')
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:34'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:34'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    59 Change user	user@172.1.0.1 on db_terminal
+		    59 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    59 Query	SELECT NAME, VALUE FROM settings
+		    59 Query	SET time_zone = '+03:00'
+		    59 Query	SELECT * FROM mqtt WHERE PATH = 'stat/nightLight/RESULT/POWER'
+		    59 Query	UPDATE `mqtt` SET `ID`='57161', `TITLE`='stat/nightLight/RESULT/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:34', `VALUE`='1', `PATH`='stat/nightLight/RESULT/POWER', `LINKED_OBJECT`='', `LINKED_PROPERTY`='', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57161'
+		    59 Query	SELECT * FROM mqtt WHERE PATH = 'stat/nightLight/RESULT'
+		    59 Query	UPDATE `mqtt` SET `ID`='57162', `TITLE`='stat/nightLight/RESULT', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:34', `VALUE`='{\"POWER\":\"1\"}', `PATH`='stat/nightLight/RESULT', `LINKED_OBJECT`='', `LINKED_PROPERTY`='', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57162'
+		    57 Change user	user@172.1.0.1 on db_terminal
+		    57 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    57 Query	SELECT NAME, VALUE FROM settings
+		    57 Query	SET time_zone = '+03:00'
+		    57 Query	SELECT * FROM mqtt WHERE PATH = 'stat/nightLight/POWER'
+		    57 Query	UPDATE `mqtt` SET `ID`='57163', `TITLE`='stat/nightLight/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:34', `VALUE`='1', `PATH`='stat/nightLight/POWER', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='status', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57163'
+		    57 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    57 Query	SELECT * FROM objects WHERE ID=314
+		    57 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    57 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.status'
+		    57 Query	SELECT * FROM properties WHERE ID='3870'
+		    57 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3870 AND OBJECT_ID=314
+		    57 Query	UPDATE `pvalues` SET `ID`='5893', `PROPERTY_ID`='3870', `OBJECT_ID`='314', `VALUE`='1', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='nightLight.status', `LINKED_MODULES`='mqtt,commands', `SOURCE`='/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=1&no_session=1' WHERE ID = '5893'
+		    57 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.status', '1')
+		    58 Change user	user@172.1.0.1 on db_terminal
+		    58 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    58 Query	SELECT NAME, VALUE FROM settings
+		    58 Query	SET time_zone = '+03:00'
+		    58 Query	SELECT * FROM commands WHERE LINKED_OBJECT = 'nightLight' AND LINKED_PROPERTY = 'status'
+		    58 Query	UPDATE `commands` SET `ID`='178', `TITLE`='nightLight', `COMMAND`='', `URL`='', `WIDTH`='0', `HEIGHT`='0', `PARENT_ID`='106', `SUB_LIST`='178', `PARENT_LIST`='106', `PRIORITY`='1000', `WINDOW`='', `AUTOSTART`='0', `TYPE`='switch', `MIN_VALUE`='0', `MAX_VALUE`='0', `CUR_VALUE`='1', `STEP_VALUE`='0', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='status', `ONCHANGE_OBJECT`='', `ONCHANGE_METHOD`='Switch', `ICON`='', `DATA`='', `SCRIPT_ID`='0', `AUTO_UPDATE`='20', `CODE`='', `SYSTEM`='sdevice15', `EXT_ID`='0', `VISIBLE_DELAY`='0', `INLINE`='0', `SUB_PRELOAD`='0', `RENDER_TITLE`='s20-1', `RENDER_DATA`='', `RENDER_UPDATED`='2018-02-20 21:21:00', `SMART_REPEAT`='0', `READ_ONLY`='1' WHERE ID = '178'
+		    57 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.status', '1', 'PostProperty', '2021-06-24 09:32:34')
+		    57 Query	INSERT INTO `phistory_queue`(`VALUE_ID`, `ADDED`, `VALUE`, `SOURCE`, `OLD_VALUE`, `KEEP_HISTORY`) VALUES('5893', '2021-06-24 09:32:34', '1', '/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=1&no_session=1', '0', '7')
+		    61 Change user	user@172.1.0.1 on db_terminal
+		    61 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    61 Query	SELECT NAME, VALUE FROM settings
+		    61 Query	SET time_zone = '+03:00'
+		    61 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    61 Query	SELECT * FROM objects WHERE ID=314
+		    61 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    61 Query	SELECT ID FROM methods WHERE OBJECT_ID='314' AND TITLE = 'statusUpdated'
+		    61 Query	SELECT PARENT_ID FROM classes WHERE ID='105'
+		    61 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='105' AND OBJECT_ID=0
+		    61 Query	SELECT * FROM methods WHERE ID='296'
+		    61 Query	UPDATE `methods` SET `ID`='296', `EXECUTED`='2021-06-24 09:32:34', `EXECUTED_SRC`='/api.php/method/nightLight.statusUpdated?PROPERTY=status&NEW_VALUE=1&OLD_VALUE=0&SOURCE=/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=1&no_session=1&raiseEvent=1&m_c_s[0]=nightLight.statusUpdated.cf49803f72a5b3517144122d55369e6c&r_s_m=1&no_ses...', `EXECUTED_PARAMS`='{\"PROPERTY\":\"status\",\"NEW_VALUE\":\"1\",\"OLD_VALUE\":\"0\",\"raiseEvent\":\"1\",\"r_s_m\":\"1\",\"no_session\":\"1\",\"ORIGINAL_OBJECT_TITLE\":\"nightLight\"}' WHERE ID = '296'
+		    61 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.updated'
+		    61 Query	SELECT * FROM properties WHERE ID='3871'
+		    61 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3871 AND OBJECT_ID=314
+		    61 Query	UPDATE `pvalues` SET `ID`='5894', `PROPERTY_ID`='3871', `OBJECT_ID`='314', `VALUE`='1624516354', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='nightLight.updated', `LINKED_MODULES`='', `SOURCE`='/api.php/method/nightLight.statusUpdated?PROPERTY=status&NEW_VALUE=1&OLD_VALUE=0&SOURCE=/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=1&no_session=1&raiseEvent=1&m_c_s[0]=nightLight.statusUpdated.cf49803f72a5b3517144122d55369e6c&r_s_m=1&no_ses...' WHERE ID = '5894'
+		    61 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.updated', '1624516354')
+		    61 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.updated', '1624516354', 'PostProperty', '2021-06-24 09:32:34')
+		    61 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.updatedText'
+		    61 Query	SELECT * FROM properties WHERE ID='3872'
+		    61 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3872 AND OBJECT_ID=314
+		    61 Query	UPDATE `pvalues` SET `ID`='5895', `PROPERTY_ID`='3872', `OBJECT_ID`='314', `VALUE`='Jun2021_ThuAMEESTE_JuneJunEEST', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='nightLight.updatedText', `LINKED_MODULES`='', `SOURCE`='/api.php/method/nightLight.statusUpdated?PROPERTY=status&NEW_VALUE=1&OLD_VALUE=0&SOURCE=/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=1&no_session=1&raiseEvent=1&m_c_s[0]=nightLight.statusUpdated.cf49803f72a5b3517144122d55369e6c&r_s_m=1&no_ses...' WHERE ID = '5895'
+		    61 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.updatedText', 'Jun2021_ThuAMEESTE_JuneJunEEST')
+		    61 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.updatedText', 'Jun2021_ThuAMEESTE_JuneJunEEST', 'PostProperty', '2021-06-24 09:32:34')
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM elm_states WHERE ID='255'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	UPDATE elm_states SET CURRENT_STATE=0 WHERE ID=255
+		    56 Query	SELECT * FROM elm_states WHERE ID='256'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	UPDATE elm_states SET CURRENT_STATE=1 WHERE ID=256
+		    56 Query	SELECT * FROM elm_states WHERE ID='255'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM elm_states WHERE ID='256'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516354', `UPDATED`='2021-06-24 09:32:34', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516354')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516354', 'PostProperty', '2021-06-24 09:32:34')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:34', '2021-06-24 10:07:34')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+210624  9:32:35	    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516355')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    24 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    17 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    17 Query	SELECT * FROM objects WHERE ID=7
+		    24 Query	SELECT * FROM objects WHERE ID=7
+		    17 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    24 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    17 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_webvarsRun'
+		    24 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_pingRun'
+		    17 Query	SELECT * FROM properties WHERE ID='9778'
+		    24 Query	SELECT * FROM properties WHERE ID='9781'
+		    17 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9778 AND OBJECT_ID=7
+		    24 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9781 AND OBJECT_ID=7
+		    24 Query	UPDATE `pvalues` SET `ID`='9816', `PROPERTY_ID`='9781', `OBJECT_ID`='7', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='ThisComputer.cycle_pingRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9816'
+		    17 Query	UPDATE `pvalues` SET `ID`='9813', `PROPERTY_ID`='9778', `OBJECT_ID`='7', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='ThisComputer.cycle_webvarsRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9813'
+		    24 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_pingRun', '1624516355')
+		    17 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_webvarsRun', '1624516355')
+		    24 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_pingRun', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    17 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_webvarsRun', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    24 Query	SELECT * FROM pinghosts WHERE CHECK_NEXT<=NOW() ORDER BY CHECK_NEXT LIMIT 1000
+		    17 Query	SELECT * FROM webvars WHERE CHECK_NEXT<=NOW()
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    60 Change user	user@172.1.0.1 on db_terminal
+		    60 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    60 Query	SELECT NAME, VALUE FROM settings
+		    60 Query	SET time_zone = '+03:00'
+		    60 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    60 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:35', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    60 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    60 Query	SELECT * FROM users ORDER BY NAME
+		    60 Query	SELECT * FROM commands WHERE ID='178'
+		    60 Query	INSERT INTO `actions_log`(`ADDED`, `USER`, `TERMINAL`, `ACTION_TYPE`, `TITLE`, `IP`) VALUES('2021-06-24 09:32:35', 'andrey', 'homepc', 'menu_clicked', 'nightLight', '192.168.1.2')
+		    60 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    60 Query	SELECT * FROM objects WHERE ID=314
+		    60 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    60 Query	SELECT ID FROM methods WHERE OBJECT_ID='314' AND TITLE = 'Switch'
+		    60 Query	SELECT PARENT_ID FROM classes WHERE ID='105'
+		    60 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='105' AND OBJECT_ID=0
+		    60 Query	SELECT * FROM methods WHERE ID='295'
+		    60 Query	UPDATE `methods` SET `ID`='295', `EXECUTED`='2021-06-24 09:32:35', `EXECUTED_SRC`='/ajax/commands.html?op=value_changed&item_id=178&new_value=0', `EXECUTED_PARAMS`='{\"VALUE\":\"0\",\"OLD_VALUE\":\"1\",\"ORIGINAL_OBJECT_TITLE\":\"nightLight\"}' WHERE ID = '295'
+		    60 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.cmnd'
+		    60 Query	SELECT * FROM properties WHERE ID='3873'
+		    60 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3873 AND OBJECT_ID=314
+		    60 Query	UPDATE `pvalues` SET `ID`='5892', `PROPERTY_ID`='3873', `OBJECT_ID`='314', `VALUE`='0', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='nightLight.cmnd', `LINKED_MODULES`='mqtt', `SOURCE`='/ajax/commands.html?op=value_changed&item_id=178&new_value=0' WHERE ID = '5892'
+		    60 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.cmnd', '0')
+		    59 Change user	user@172.1.0.1 on db_terminal
+		    59 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    59 Query	SELECT NAME, VALUE FROM settings
+		    59 Query	SET time_zone = '+03:00'
+		    59 Query	SELECT ID FROM mqtt WHERE READONLY=0 AND LINKED_OBJECT LIKE 'nightLight' AND LINKED_PROPERTY LIKE 'cmnd'
+		    59 Query	SELECT * FROM mqtt WHERE ID='57149'
+		    59 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'mqtt'
+		    59 Query	UPDATE `mqtt` SET `ID`='57149', `TITLE`='cmnd/nightLight/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:35', `VALUE`='0', `PATH`='cmnd/nightLight/POWER', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='cmnd', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57149'
+		    60 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.cmnd', '0', 'PostProperty', '2021-06-24 09:32:35')
+		    12 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    12 Query	SELECT * FROM objects WHERE ID=7
+		    12 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_phistoryRun'
+		    12 Query	SELECT * FROM properties WHERE ID='9777'
+		    12 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9777 AND OBJECT_ID=7
+		    12 Query	UPDATE `pvalues` SET `ID`='9812', `PROPERTY_ID`='9777', `OBJECT_ID`='7', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='ThisComputer.cycle_phistoryRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9812'
+		    12 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_phistoryRun', '1624516355')
+		    12 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_phistoryRun', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    12 Query	DELETE FROM phistory_queue WHERE ID='32544743'
+		    12 Query	INSERT INTO `phistory`(`VALUE_ID`, `ADDED`, `VALUE`, `SOURCE`) VALUES('5893', '2021-06-24 09:32:34', '1', '/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=1&no_session=1')
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    58 Change user	user@172.1.0.1 on db_terminal
+		    58 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    58 Query	SELECT NAME, VALUE FROM settings
+		    58 Query	SET time_zone = '+03:00'
+		    58 Query	SELECT * FROM mqtt WHERE PATH = 'cmnd/nightLight/POWER'
+		    58 Query	UPDATE `mqtt` SET `ID`='57149', `TITLE`='cmnd/nightLight/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:35', `VALUE`='0', `PATH`='cmnd/nightLight/POWER', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='cmnd', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57149'
+		    58 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    58 Query	SELECT * FROM objects WHERE ID=314
+		    58 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    58 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.cmnd'
+		    58 Query	SELECT * FROM properties WHERE ID='3873'
+		    58 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3873 AND OBJECT_ID=314
+		    58 Query	UPDATE `pvalues` SET `ID`='5892', `PROPERTY_ID`='3873', `OBJECT_ID`='314', `VALUE`='0', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='nightLight.cmnd', `LINKED_MODULES`='mqtt', `SOURCE`='/api.php/module/mqtt?topic=cmnd/nightLight/POWER&msg=0&no_session=1' WHERE ID = '5892'
+		    58 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.cmnd', '0')
+		    58 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.cmnd', '0', 'PostProperty', '2021-06-24 09:32:35')
+		    61 Change user	user@172.1.0.1 on db_terminal
+		    61 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    61 Query	SELECT NAME, VALUE FROM settings
+		    61 Query	SET time_zone = '+03:00'
+		    61 Query	SELECT * FROM mqtt WHERE PATH = 'stat/nightLight/RESULT/POWER'
+		    61 Query	UPDATE `mqtt` SET `ID`='57161', `TITLE`='stat/nightLight/RESULT/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:35', `VALUE`='0', `PATH`='stat/nightLight/RESULT/POWER', `LINKED_OBJECT`='', `LINKED_PROPERTY`='', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57161'
+		    61 Query	SELECT * FROM mqtt WHERE PATH = 'stat/nightLight/RESULT'
+		    61 Query	UPDATE `mqtt` SET `ID`='57162', `TITLE`='stat/nightLight/RESULT', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:35', `VALUE`='{\"POWER\":\"0\"}', `PATH`='stat/nightLight/RESULT', `LINKED_OBJECT`='', `LINKED_PROPERTY`='', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57162'
+		    57 Change user	user@172.1.0.1 on db_terminal
+		    57 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    57 Query	SELECT NAME, VALUE FROM settings
+		    57 Query	SET time_zone = '+03:00'
+		    57 Query	SELECT * FROM mqtt WHERE PATH = 'stat/nightLight/POWER'
+		    57 Query	UPDATE `mqtt` SET `ID`='57163', `TITLE`='stat/nightLight/POWER', `LOCATION_ID`='0', `UPDATED`='2021-06-24 09:32:35', `VALUE`='0', `PATH`='stat/nightLight/POWER', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='status', `PATH_WRITE`='', `QOS`='0', `RETAIN`='0', `DISP_FLAG`='0', `REPLACE_LIST`='', `LINKED_METHOD`='', `READONLY`='0', `ONLY_NEW_VALUE`='0' WHERE ID = '57163'
+		    57 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    57 Query	SELECT * FROM objects WHERE ID=314
+		    57 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    57 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.status'
+		    57 Query	SELECT * FROM properties WHERE ID='3870'
+		    57 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3870 AND OBJECT_ID=314
+		    57 Query	UPDATE `pvalues` SET `ID`='5893', `PROPERTY_ID`='3870', `OBJECT_ID`='314', `VALUE`='0', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='nightLight.status', `LINKED_MODULES`='mqtt,commands', `SOURCE`='/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=0&no_session=1' WHERE ID = '5893'
+		    57 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.status', '0')
+		    59 Change user	user@172.1.0.1 on db_terminal
+		    59 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    59 Query	SELECT NAME, VALUE FROM settings
+		    59 Query	SET time_zone = '+03:00'
+		    59 Query	SELECT * FROM commands WHERE LINKED_OBJECT = 'nightLight' AND LINKED_PROPERTY = 'status'
+		    59 Query	UPDATE `commands` SET `ID`='178', `TITLE`='nightLight', `COMMAND`='', `URL`='', `WIDTH`='0', `HEIGHT`='0', `PARENT_ID`='106', `SUB_LIST`='178', `PARENT_LIST`='106', `PRIORITY`='1000', `WINDOW`='', `AUTOSTART`='0', `TYPE`='switch', `MIN_VALUE`='0', `MAX_VALUE`='0', `CUR_VALUE`='0', `STEP_VALUE`='0', `LINKED_OBJECT`='nightLight', `LINKED_PROPERTY`='status', `ONCHANGE_OBJECT`='', `ONCHANGE_METHOD`='Switch', `ICON`='', `DATA`='', `SCRIPT_ID`='0', `AUTO_UPDATE`='20', `CODE`='', `SYSTEM`='sdevice15', `EXT_ID`='0', `VISIBLE_DELAY`='0', `INLINE`='0', `SUB_PRELOAD`='0', `RENDER_TITLE`='s20-1', `RENDER_DATA`='', `RENDER_UPDATED`='2018-02-20 21:21:00', `SMART_REPEAT`='0', `READ_ONLY`='1' WHERE ID = '178'
+		    57 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.status', '0', 'PostProperty', '2021-06-24 09:32:35')
+		    57 Query	INSERT INTO `phistory_queue`(`VALUE_ID`, `ADDED`, `VALUE`, `SOURCE`, `OLD_VALUE`, `KEEP_HISTORY`) VALUES('5893', '2021-06-24 09:32:35', '0', '/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=0&no_session=1', '1', '7')
+		    60 Change user	user@172.1.0.1 on db_terminal
+		    60 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    60 Query	SELECT NAME, VALUE FROM settings
+		    60 Query	SET time_zone = '+03:00'
+		    60 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'nightLight'
+		    60 Query	SELECT * FROM objects WHERE ID=314
+		    60 Query	SELECT ID,TITLE FROM classes WHERE ID=105
+		    60 Query	SELECT ID FROM methods WHERE OBJECT_ID='314' AND TITLE = 'statusUpdated'
+		    60 Query	SELECT PARENT_ID FROM classes WHERE ID='105'
+		    60 Query	SELECT methods.*, classes.TITLE AS CLASS_TITLE FROM methods LEFT JOIN classes ON methods.CLASS_ID=classes.ID WHERE CLASS_ID='105' AND OBJECT_ID=0
+		    60 Query	SELECT * FROM methods WHERE ID='296'
+		    60 Query	UPDATE `methods` SET `ID`='296', `EXECUTED`='2021-06-24 09:32:35', `EXECUTED_SRC`='/api.php/method/nightLight.statusUpdated?PROPERTY=status&NEW_VALUE=0&OLD_VALUE=1&SOURCE=/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=0&no_session=1&raiseEvent=1&m_c_s[0]=nightLight.statusUpdated.3c257449875d96148501d22e5ce7acde&r_s_m=1&no_ses...', `EXECUTED_PARAMS`='{\"PROPERTY\":\"status\",\"NEW_VALUE\":\"0\",\"OLD_VALUE\":\"1\",\"raiseEvent\":\"1\",\"r_s_m\":\"1\",\"no_session\":\"1\",\"ORIGINAL_OBJECT_TITLE\":\"nightLight\"}' WHERE ID = '296'
+		    60 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.updated'
+		    60 Query	SELECT * FROM properties WHERE ID='3871'
+		    60 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3871 AND OBJECT_ID=314
+		    60 Query	UPDATE `pvalues` SET `ID`='5894', `PROPERTY_ID`='3871', `OBJECT_ID`='314', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='nightLight.updated', `LINKED_MODULES`='', `SOURCE`='/api.php/method/nightLight.statusUpdated?PROPERTY=status&NEW_VALUE=0&OLD_VALUE=1&SOURCE=/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=0&no_session=1&raiseEvent=1&m_c_s[0]=nightLight.statusUpdated.3c257449875d96148501d22e5ce7acde&r_s_m=1&no_ses...' WHERE ID = '5894'
+		    60 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.updated', '1624516355')
+		    60 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.updated', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    60 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:105.314.updatedText'
+		    60 Query	SELECT * FROM properties WHERE ID='3872'
+		    60 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=3872 AND OBJECT_ID=314
+		    60 Query	UPDATE `pvalues` SET `ID`='5895', `PROPERTY_ID`='3872', `OBJECT_ID`='314', `VALUE`='Jun2021_ThuAMEESTE_JuneJunEEST', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='nightLight.updatedText', `LINKED_MODULES`='', `SOURCE`='/api.php/method/nightLight.statusUpdated?PROPERTY=status&NEW_VALUE=0&OLD_VALUE=1&SOURCE=/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=0&no_session=1&raiseEvent=1&m_c_s[0]=nightLight.statusUpdated.3c257449875d96148501d22e5ce7acde&r_s_m=1&no_ses...' WHERE ID = '5895'
+		    60 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:nightLight.updatedText', 'Jun2021_ThuAMEESTE_JuneJunEEST')
+		    60 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('nightLight.updatedText', 'Jun2021_ThuAMEESTE_JuneJunEEST', 'PostProperty', '2021-06-24 09:32:35')
+		    20 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    20 Query	SELECT * FROM objects WHERE ID=7
+		    20 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    20 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_schedulerRun'
+		    20 Query	SELECT * FROM properties WHERE ID='9780'
+		    20 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9780 AND OBJECT_ID=7
+		    20 Query	UPDATE `pvalues` SET `ID`='9815', `PROPERTY_ID`='9780', `OBJECT_ID`='7', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='ThisComputer.cycle_schedulerRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9815'
+		    20 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_schedulerRun', '1624516355')
+		    20 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_schedulerRun', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:35'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:35'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM elm_states WHERE ID='255'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	UPDATE elm_states SET CURRENT_STATE=1 WHERE ID=255
+		    56 Query	SELECT * FROM elm_states WHERE ID='256'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	UPDATE elm_states SET CURRENT_STATE=0 WHERE ID=256
+		    56 Query	SELECT * FROM elm_states WHERE ID='255'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM elm_states WHERE ID='256'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    56 Query	SELECT * FROM commands WHERE ID='178'
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:nightLight.status'
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516355', `UPDATED`='2021-06-24 09:32:35', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516355')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516355', 'PostProperty', '2021-06-24 09:32:35')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:35', '2021-06-24 10:07:35')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+210624  9:32:36	    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516356', `UPDATED`='2021-06-24 09:32:36', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516356')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516356', 'PostProperty', '2021-06-24 09:32:36')
+		    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    31 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    31 Query	SELECT * FROM objects WHERE ID=7
+		    31 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    31 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_watchfoldersRun'
+		    31 Query	SELECT * FROM properties WHERE ID='9785'
+		    31 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9785 AND OBJECT_ID=7
+		    31 Query	UPDATE `pvalues` SET `ID`='9820', `PROPERTY_ID`='9785', `OBJECT_ID`='7', `VALUE`='1624516356', `UPDATED`='2021-06-24 09:32:36', `PROPERTY_NAME`='ThisComputer.cycle_watchfoldersRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9820'
+		    31 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_watchfoldersRun', '1624516356')
+		    31 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_watchfoldersRun', '1624516356', 'PostProperty', '2021-06-24 09:32:36')
+		    31 Query	SELECT ID FROM watchfolders WHERE CHECK_NEXT<NOW()
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    58 Change user	user@172.1.0.1 on db_terminal
+		    58 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    58 Query	SELECT NAME, VALUE FROM settings
+		    58 Query	SET time_zone = '+03:00'
+		    58 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    58 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:36', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    58 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    58 Query	SELECT * FROM users ORDER BY NAME
+		    58 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    58 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    58 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    12 Query	DELETE FROM phistory_queue WHERE ID='32544744'
+		    12 Query	INSERT INTO `phistory`(`VALUE_ID`, `ADDED`, `VALUE`, `SOURCE`) VALUES('5893', '2021-06-24 09:32:35', '0', '/api.php/module/mqtt?topic=stat/nightLight/POWER&msg=0&no_session=1')
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:36'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:36'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    56 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    56 Query	SELECT * FROM objects WHERE ID=7
+		    56 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_websocketsRun'
+		    56 Query	SELECT * FROM properties WHERE ID='9790'
+		    56 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9790 AND OBJECT_ID=7
+		    56 Query	UPDATE `pvalues` SET `ID`='9825', `PROPERTY_ID`='9790', `OBJECT_ID`='7', `VALUE`='1624516356', `UPDATED`='2021-06-24 09:32:36', `PROPERTY_NAME`='ThisComputer.cycle_websocketsRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9825'
+		    56 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_websocketsRun', '1624516356')
+		    56 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_websocketsRun', '1624516356', 'PostProperty', '2021-06-24 09:32:36')
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.WSClientsTotal'
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516356', `UPDATED`='2021-06-24 09:32:36', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516356')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516356', 'PostProperty', '2021-06-24 09:32:36')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:36', '2021-06-24 10:07:36')
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:yandex_dns.ip'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:yandex_dns.port'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:yandex_dns.online'
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:wifi_rtr.ip'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:wifi_rtr.port'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:wifi_rtr.online'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ps4pro.ip'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ps4pro.port'
+		    26 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ps4pro.online'
+210624  9:32:37	    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516357', `UPDATED`='2021-06-24 09:32:37', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516357')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516357', 'PostProperty', '2021-06-24 09:32:37')
+		    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    23 Query	SELECT * FROM objects WHERE ID=7
+		    23 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    23 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_bluetoothdevicesRun'
+		    23 Query	SELECT * FROM properties WHERE ID='9779'
+		    23 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9779 AND OBJECT_ID=7
+		    23 Query	UPDATE `pvalues` SET `ID`='9814', `PROPERTY_ID`='9779', `OBJECT_ID`='7', `VALUE`='1624516357', `UPDATED`='2021-06-24 09:32:37', `PROPERTY_NAME`='ThisComputer.cycle_bluetoothdevicesRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9814'
+		    23 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_bluetoothdevicesRun', '1624516357')
+		    23 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_bluetoothdevicesRun', '1624516357', 'PostProperty', '2021-06-24 09:32:37')
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    61 Change user	user@172.1.0.1 on db_terminal
+		    61 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    61 Query	SELECT NAME, VALUE FROM settings
+		    61 Query	SET time_zone = '+03:00'
+		    61 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    61 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:37', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    61 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    61 Query	SELECT * FROM users ORDER BY NAME
+		    61 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    61 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    61 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:37'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:37'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516357', `UPDATED`='2021-06-24 09:32:37', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516357')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516357', 'PostProperty', '2021-06-24 09:32:37')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:37', '2021-06-24 10:07:37')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+210624  9:32:38	    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516358', `UPDATED`='2021-06-24 09:32:38', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516358')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516358', 'PostProperty', '2021-06-24 09:32:38')
+		    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    59 Change user	user@172.1.0.1 on db_terminal
+		    59 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    59 Query	SELECT NAME, VALUE FROM settings
+		    59 Query	SET time_zone = '+03:00'
+		    59 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    59 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:38', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    59 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    59 Query	SELECT * FROM users ORDER BY NAME
+		    59 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    59 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    59 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    60 Change user	user@172.1.0.1 on db_terminal
+		    60 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    60 Query	SELECT NAME, VALUE FROM settings
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    60 Query	SET time_zone = '+03:00'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    60 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    60 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:38', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    60 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    60 Query	SELECT * FROM users ORDER BY NAME
+		    60 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    60 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    60 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    35 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    35 Query	SELECT * FROM objects WHERE ID=7
+		    35 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    35 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_narodmon3Run'
+		    35 Query	SELECT * FROM properties WHERE ID='9789'
+		    35 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9789 AND OBJECT_ID=7
+		    35 Query	UPDATE `pvalues` SET `ID`='9824', `PROPERTY_ID`='9789', `OBJECT_ID`='7', `VALUE`='1624516358', `UPDATED`='2021-06-24 09:32:38', `PROPERTY_NAME`='ThisComputer.cycle_narodmon3Run', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9824'
+		    35 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_narodmon3Run', '1624516358')
+		    35 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_narodmon3Run', '1624516358', 'PostProperty', '2021-06-24 09:32:38')
+		    35 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'narodmon3'
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:38'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:38'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516358', `UPDATED`='2021-06-24 09:32:38', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516358')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516358', 'PostProperty', '2021-06-24 09:32:38')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:38', '2021-06-24 10:07:38')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+210624  9:32:39	    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516359', `UPDATED`='2021-06-24 09:32:39', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516359')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516359', 'PostProperty', '2021-06-24 09:32:39')
+		    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:39'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:39'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    56 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    56 Query	SELECT * FROM objects WHERE ID=7
+		    56 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_websocketsRun'
+		    56 Query	SELECT * FROM properties WHERE ID='9790'
+		    56 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9790 AND OBJECT_ID=7
+		    56 Query	UPDATE `pvalues` SET `ID`='9825', `PROPERTY_ID`='9790', `OBJECT_ID`='7', `VALUE`='1624516359', `UPDATED`='2021-06-24 09:32:39', `PROPERTY_NAME`='ThisComputer.cycle_websocketsRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9825'
+		    56 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_websocketsRun', '1624516359')
+		    56 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_websocketsRun', '1624516359', 'PostProperty', '2021-06-24 09:32:39')
+		    56 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.WSClientsTotal'
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516359', `UPDATED`='2021-06-24 09:32:39', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516359')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516359', 'PostProperty', '2021-06-24 09:32:39')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:39', '2021-06-24 10:07:39')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    27 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    27 Query	SELECT * FROM objects WHERE ID=7
+		    27 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mainRun'
+		    27 Query	SELECT * FROM properties WHERE ID='9783'
+		    27 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9783 AND OBJECT_ID=7
+		    27 Query	UPDATE `pvalues` SET `ID`='9818', `PROPERTY_ID`='9783', `OBJECT_ID`='7', `VALUE`='1624516359', `UPDATED`='2021-06-24 09:32:39', `PROPERTY_NAME`='ThisComputer.cycle_mainRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9818'
+		    27 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mainRun', '1624516359')
+		    27 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mainRun', '1624516359', 'PostProperty', '2021-06-24 09:32:39')
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.started_time'
+		    27 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    27 Query	SELECT * FROM objects WHERE ID=7
+		    27 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.uptime'
+		    27 Query	SELECT * FROM properties WHERE ID='4085'
+		    27 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=4085 AND OBJECT_ID=7
+		    27 Query	UPDATE `pvalues` SET `ID`='4079', `PROPERTY_ID`='4085', `OBJECT_ID`='7', `VALUE`='32377', `UPDATED`='2021-06-24 09:32:39', `PROPERTY_NAME`='ThisComputer.uptime', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '4079'
+		    27 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.uptime', '32377')
+		    27 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.uptime', '32377', 'PostProperty', '2021-06-24 09:32:39')
+		    27 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    27 Query	SELECT * FROM objects WHERE ID=7
+		    27 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    27 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.uptimeText'
+		    27 Query	SELECT * FROM properties WHERE ID='6116'
+		    27 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=6116 AND OBJECT_ID=7
+		    27 Query	UPDATE `pvalues` SET `ID`='6198', `PROPERTY_ID`='6116', `OBJECT_ID`='7', `VALUE`='8h 59m', `UPDATED`='2021-06-24 09:32:39', `PROPERTY_NAME`='ThisComputer.uptimeText', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '6198'
+		    27 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.uptimeText', '8h 59m')
+		    27 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.uptimeText', '8h 59m', 'PostProperty', '2021-06-24 09:32:39')
+210624  9:32:40	    10 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    10 Query	SELECT * FROM objects WHERE ID=7
+		    10 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    10 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_mqttRun'
+		    10 Query	SELECT * FROM properties WHERE ID='9775'
+		    10 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9775 AND OBJECT_ID=7
+		    10 Query	UPDATE `pvalues` SET `ID`='9810', `PROPERTY_ID`='9775', `OBJECT_ID`='7', `VALUE`='1624516360', `UPDATED`='2021-06-24 09:32:40', `PROPERTY_NAME`='ThisComputer.cycle_mqttRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9810'
+		    10 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_mqttRun', '1624516360')
+		    10 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_mqttRun', '1624516360', 'PostProperty', '2021-06-24 09:32:40')
+		    29 Query	SELECT * FROM safe_execs WHERE EXCLUSIVE = 1 ORDER BY PRIORITY DESC, ID
+		    29 Query	SELECT * FROM safe_execs ORDER BY PRIORITY DESC, ID
+		    23 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'bluetoothdevices'
+		    57 Change user	user@172.1.0.1 on db_terminal
+		    57 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    57 Query	SELECT NAME, VALUE FROM settings
+		    57 Query	SET time_zone = '+03:00'
+		    57 Query	SELECT * FROM `terminals` ORDER BY `TITLE` ASC
+		    57 Query	UPDATE `terminals` SET `ID`='6', `NAME`='homepc', `TITLE`='homepc', `HOST`='192.168.1.2', `CANPLAY`='0', `PLAYER_TYPE`='', `PLAYER_PORT`='', `PLAYER_USERNAME`='', `PLAYER_PASSWORD`='', `IS_ONLINE`='1', `MAJORDROID_API`='0', `LATEST_REQUEST`='', `LATEST_REQUEST_TIME`='2021-06-24 01:07:50', `LATEST_ACTIVITY`='2021-06-24 09:32:40', `LINKED_OBJECT`='terminal_homepc', `LEVEL_LINKED_PROPERTY`='', `CANTTS`='0', `MIN_MSG_LEVEL`='0', `PLAYER_CONTROL_ADDRESS`='', `TTS_TYPE`='', `TTS_SETING`='{\"TTS_PORT\":\"\",\"TTS_USERNAME\":\"\",\"TTS_PASSWORD\":\"\",\"TTS_CONTROL_ADDRESS\":\"\",\"TTS_SOUND_DEVICE\":\"\",\"TTS_USE_DISPLAY\":\"\",\"TTS_BRIGHTNESS_DISPLAY\":\"50\"}', `USE_SYSTEM_MML`='1', `MESSAGE_VOLUME_LEVEL`='100', `TERMINAL_VOLUME_LEVEL`='100', `LOCATION_ID`='0' WHERE ID = '6'
+		    57 Query	SELECT * FROM `terminals` WHERE `NAME` = 'MAIN' OR `TITLE` = 'MAIN' ORDER BY `ID` ASC
+		    57 Query	SELECT * FROM users ORDER BY NAME
+		    57 Query	DELETE FROM shouts WHERE (TO_DAYS(NOW())-TO_DAYS(ADDED))>7
+		    57 Query	SELECT shouts.*, DATE_FORMAT(shouts.ADDED, '%H:%i') as DAT, TO_DAYS(shouts.ADDED) as DT, users.NAME, users.COLOR FROM shouts LEFT JOIN users ON shouts.MEMBER_ID=users.ID WHERE 1 ORDER BY shouts.ADDED DESC, ID DESC LIMIT 10
+		    57 Query	SELECT * FROM shoutrooms WHERE (IS_PUBLIC=1) OR (IS_PUBLIC=0 AND ADDED_BY=0) OR (IS_PUBLIC=0 AND ID=0) ORDER BY PRIORITY DESC, TITLE
+		    12 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.phistory_queue_problem'
+		    12 Query	SELECT COUNT(*) as TOTAL FROM phistory_queue
+		    12 Query	SELECT * FROM phistory_queue ORDER BY ID LIMIT 200
+		    20 Query	DELETE FROM jobs WHERE EXPIRE <= '2021-06-24 09:32:40'
+		    20 Query	SELECT *
+                  FROM jobs
+                 WHERE PROCESSED = 0
+                   AND EXPIRED   = 0
+                   AND RUNTIME   <= '2021-06-24 09:32:40'
+		    20 Query	SELECT ID, TITLE, RUN_DAYS, RUN_TIME FROM scripts WHERE RUN_PERIODICALLY=1 AND ((UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(EXECUTED))>60 OR IsNull(EXECUTED))
+		    34 Query	SELECT * FROM cached_ws
+		    34 Query	TRUNCATE TABLE `cached_ws`
+		    34 Query	SELECT objects.*
+                     FROM objects
+                    WHERE TITLE = 'ThisComputer'
+		    34 Query	SELECT * FROM objects WHERE ID=7
+		    34 Query	SELECT ID,TITLE FROM classes WHERE ID=10
+		    34 Query	SELECT * FROM cached_values WHERE KEYWORD = 'P:10.7.cycle_wscacheRun'
+		    34 Query	SELECT * FROM properties WHERE ID='9788'
+		    34 Query	SELECT * FROM pvalues WHERE PROPERTY_ID=9788 AND OBJECT_ID=7
+		    34 Query	UPDATE `pvalues` SET `ID`='9823', `PROPERTY_ID`='9788', `OBJECT_ID`='7', `VALUE`='1624516360', `UPDATED`='2021-06-24 09:32:40', `PROPERTY_NAME`='ThisComputer.cycle_wscacheRun', `LINKED_MODULES`='', `SOURCE`='' WHERE ID = '9823'
+		    34 Query	REPLACE INTO cached_values (KEYWORD, DATAVALUE)  VALUES ('MJD:ThisComputer.cycle_wscacheRun', '1624516360')
+		    34 Query	REPLACE INTO `cached_ws`(`PROPERTY`, `DATAVALUE`, `POST_ACTION`, `ADDED`) VALUES('ThisComputer.cycle_wscacheRun', '1624516360', 'PostProperty', '2021-06-24 09:32:40')
+		    34 Query	DELETE FROM jobs WHERE TITLE LIKE 'restartWebSocket'
+		    34 Query	INSERT INTO `jobs`(`TITLE`, `COMMANDS`, `RUNTIME`, `EXPIRE`) VALUES('restartWebSocket', 'sg(\"cycle_websocketsRun\",\"\");sg(\"cycle_websocketsControl\",\"restart\");', '2021-06-24 09:37:40', '2021-06-24 10:07:40')
+		     8 Query	SELECT properties.* FROM properties WHERE OBJECT_ID=7 AND (TITLE LIKE 'cycle%Run' OR TITLE LIKE 'cycle%Control') ORDER BY TITLE
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mysensorControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Control'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttControl'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_statesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_phistoryRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_webvarsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_netdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_schedulerRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_pingRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_zigbee2mqttRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_mainRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_watchfoldersRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_telegramRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_narodmon3Run'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_bluetoothdevicesRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_wscacheRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_execsRun'
+		     8 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.cycle_websocketsRun'
+		    33 Query	SELECT *
+                     FROM project_modules
+                    WHERE NAME = 'telegram'
+210624  9:32:41	    58 Change user	user@172.1.0.1 on db_terminal
+		    58 Query	set NAMES 'utf8', CHARACTER SET 'utf8', character_set_client='utf8', character_set_results='utf8', collation_connection='utf8_general_ci'
+		    58 Query	SELECT NAME, VALUE FROM settings
+		    58 Query	SET time_zone = '+03:00'
+		    58 Query	SELECT * FROM cached_values WHERE KEYWORD = 'MJD:ThisComputer.HideLeftPanelAdmin'
+		    58 Query	SELECT * FROM `project_modules` WHERE NAME = 'sqlmeter'
+		    58 Query	SELECT *
+                  FROM project_modules
+                 WHERE (`HIDDEN`='0' OR NAME='control_modules')
+                 ORDER BY FIELD(CATEGORY, '<#LANG_SECTION_OBJECTS#>', '<#LANG_SECTION_DEVICES#>', '<#LANG_SECTION_APPLICATIONS#>',
+                                '<#LANG_SECTION_SETTINGS#>', '<#LANG_SECTION_SYSTEM#>'),
+                          `PRIORITY`, `TITLE`
+		    58 Query	SELECT devices.LOCATION_ID, locations.TITLE, COUNT(devices.ID) as TOTAL FROM devices LEFT JOIN locations ON devices.LOCATION_ID=locations.ID WHERE locations.ID>0 GROUP BY devices.LOCATION_ID ORDER BY locations.TITLE
+		    58 Query	SET global general_log = 0

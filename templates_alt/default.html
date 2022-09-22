@@ -1,0 +1,104 @@
+<!--#
+ @version 0.2 (auto-set)
+#-->
+<script type="text/javascript" src="<#ROOTHTML#>js/ui.tabs.paging.js"></script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+ <tr>
+  <td valign="top" width="350" id="leftPanel">
+  <iframe src="<#ROOTHTML#>menu.html" width="350" height="100%" id="navFrame" border="0" frameborder=0 framespacing=0></iframe>
+ 
+  </td>
+  <td valign="top" width="100%">
+
+
+<div id="tabs">
+<ul>
+[#begin LAYOUTS#]
+<li>
+<a href="#tabs-[#ID#]"[#if ICON!=""#] style="padding:1px 1em 2px 0.5em"[#endif#]>[#if ICON!=""#]<img src="<#ROOTHTML#>cms/layouts/[#ICON#]" align="absmiddle" height="28">&nbsp;&nbsp;[#endif#][#TITLE#]</a></li>
+[#end LAYOUTS#]
+  <li ><a href="#tabs-last" style="display:none"><span id='tablast_title'>***</span></a></li>
+</ul>
+
+[#begin LAYOUTS#]
+<div id="tabs-[#ID#]">...</div>
+[#end LAYOUTS#]
+
+<div id="tabs-last">
+  ...
+</div>
+
+</div>
+
+<!--#
+  <iframe src="<#ROOTHTML#>pages.html" id='pages_iframe' width="100%" height="100%" border="0" frameborder="0"></iframe>
+#-->
+
+
+
+  </td>
+ </tr>
+
+
+</table>
+
+<script language="javascript">
+
+var iFrameHeight=600;
+
+$(document).ready(function() {
+  iFrameHeight=$(document).height();
+  $('#navFrame').height(iFrameHeight-5);
+  //$('#pages_iframe').height(iFrameHeight);
+
+  [#begin LAYOUTS#]
+  $('#htmlTab[#NUM#]').height(iFrameHeight);
+  [#end LAYOUTS#]
+
+});
+
+
+[#begin LAYOUTS#]
+var layoutTimer[#ID#];
+[#end LAYOUTS#]
+
+
+        $("#tabs").tabs({
+        show: function(event, ui) {
+         iFrameHeight=$(document).height()-65;
+         var selected = $( "#tabs" ).tabs( "option", "selected" );
+         //alert(selected);
+         [#begin LAYOUTS#]
+         if (selected == [#NUM#]) {
+          clearTimeout(layoutTimer[#ID#]);
+          [#if TYPE="app"#]
+           if ($('#tabs-[#ID#]').html()=='...') {
+            $('#tabs-[#ID#]').html('<iframe src="<#ROOTHTML#>popup/[#APP#].html" width=100% height="'+iFrameHeight+'" border="0" frameborder="0"></iframe>');
+           }
+          [#endif TYPE#]
+          [#if TYPE="url"#]
+           if ($('#tabs-[#ID#]').html()=='...') {
+            $('#tabs-[#ID#]').html('<iframe src="[#URL#]" width=100% height="'+iFrameHeight+'" border="0" frameborder="0"></iframe>');
+           }
+          [#endif TYPE#]
+          [#if (TYPE="html") || (TYPE="dashboard")#]
+           if ($('#tabs-[#ID#]').html()=='...') {
+            $('#tabs-[#ID#]').html('<iframe src="<#ROOTHTML#>page/[#ID#].html" width=100% height="'+iFrameHeight+'" border="0" frameborder="0"></iframe>');
+           }
+          [#endif TYPE#]
+         } else {
+          if ($('#tabs-[#ID#]').html()!='...') {
+           clearTimeout(layoutTimer[#ID#]);
+           layoutTimer[#ID#]=setTimeout("$('#tabs-[#ID#]').html('...');", 60*1000);
+          }
+         }
+         [#end LAYOUTS#]
+        }});
+        $('#tabs').tabs('paging', {cycle:false, follow:false});
+
+
+
+
+</script>

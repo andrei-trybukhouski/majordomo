@@ -1,0 +1,48 @@
+ <!-- action usual -->
+ <style>
+.panel_icon {
+	font-size:23px;
+}
+.text-success {
+	color:#5cb85c;
+}
+</style>
+ [#if DATA_SOURCE="telegram" || DATA_SOURCE=""#]
+ <!-- table mysensor search -->
+ [#if VIEW_MODE="search_mysensors" || VIEW_MODE=""#]
+  [#inc search_admin.html#]
+ [#endif VIEW_MODE#]
+
+ <!-- table node edit -->
+ [#if VIEW_MODE="user_edit"#]
+    <a class="btn btn-defaul btn-primary" href="?">&lt;&lt;&lt; <#LANG_BACK#></a>
+    <p align=center>
+    [#if ID!=""#]
+	[#if USER_ID!=""#]
+	<img src="<#ROOTHTML#>cms/cached/telegram/[#USER_ID#].jpg" height="50px" onerror="this.src='<#ROOTHTML#>templates/telegram/img/none.jpg'">
+	<br>
+	[#endif USER_ID#]
+    [#if NAME!=""#]<#LANG_USER#>: <strong>[#NAME#]</strong>[#endif NAME#]
+    [#endif ID#]   
+	</p>  
+    [#inc user_edit.html#]
+[#endif VIEW_MODE#]
+[#if VIEW_MODE="cmd_edit"#]
+    <a class="btn btn-defaul btn-primary" href="?tab=cmd">&lt;&lt;&lt; <#LANG_BACK#></a>
+    <p align=center>
+    [#if ID!=""#]
+        [#if TITLE!=""#]<#LANG_TLG_COMMAND#>: <strong>[#TITLE#]</strong>[#endif TITLE#]
+    [#endif ID#]   
+	</p>  
+    [#inc cmd_edit.html#]
+[#endif VIEW_MODE#]
+[#if VIEW_MODE="event_edit"#]
+    <a class="btn btn-defaul btn-primary" href="?tab=events">&lt;&lt;&lt; <#LANG_BACK#></a>
+    <p align=center>
+    [#if ID!=""#]
+        [#if TITLE!=""#]<#LANG_TLG_EVENT#>:<strong>[#TITLE#]</strong>[#endif TITLE#]
+    [#endif ID#]   
+    </p>  
+    [#inc event_edit.html#]
+[#endif VIEW_MODE#]
+[#endif DATA_SOURCE#]

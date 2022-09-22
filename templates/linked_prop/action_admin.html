@@ -1,0 +1,63 @@
+[#if VIEW_MODE==''#]
+<div class="row">		
+	<div class="col-md-12" style="padding-left: 0px;padding-right: 0px;">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Выберите модуль</h3>
+			</div>
+			<div class="panel-collapse out in">
+				<div class="panel-body">
+					<ul class="list-group">
+						[#begin MODULES#]
+						<li class="list-group-item" onclick="$('#setModule_[#SYSTEM_NAME#]').submit();" style="cursor:pointer;">
+							[#if HUMAN_NAME#][#HUMAN_NAME#][#else#][#SYSTEM_NAME#][#endif#]
+							<span class="badge" style="background: #5cb85c">[#SYSTEM_NAME#] ([#TOTAL_LINK#] линков)</span>
+							<form action="?" method="post" enctype="multipart/form-data" style="display:none;" id="setModule_[#SYSTEM_NAME#]">
+								<input type="hidden" name="view_mode" value="[#SYSTEM_NAME#]">
+							</form>
+						</li> 
+						[#end MODULES#]
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+[#else#]
+<div class="row">		
+	<div class="col-md-12" style="padding-left: 0px;padding-right: 0px;">
+		<ul class="list-group">
+			[#begin MODULE_LINKED#]
+			<li class="list-group-item li_module_link" id="listgroup_[#ID#]">
+				<div class="row" style="margin-right: -15px;margin-left: -15px;">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;" id="delLinkNoty_[#ID#]">
+						<div class="alert alert-danger text-center" style="font-size: 1.2rem;">Удаление привязки модуль <i class="glyphicon glyphicon-arrow-right"></i> свойство остановит взаимодествие системы с модулем! При этом, модуль будет продолжать
+						считать, что свойство привязано. Если вы не понимаете что делаете - не удаляйте привязку!</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin-bottom: 5px;"> 
+						<i class="glyphicon glyphicon-search" style="color: silver;margin-right: 10px;vertical-align: top;cursor: pointer;" onclick="$('#filter_modules').val('[#PROPERTY_NAME#]');filterSearch();$('#mdmGlobalSearchModal').modal('show');"></i>
+						
+						[#PROPERTY_NAME#]
+
+						[#if LINKED_MODULES!=""#]<p style="color: gray;font-size: 1.2rem;margin: 0px;">↳ <span class="label label-success" style="margin-right: 3px;">[#LINKED_MODULES#]</span></p>[#endif#]
+						<p style="color: gray;font-size: 1.2rem;margin: 0px;">↳ <button type="button" onclick="$('.li_module_link').attr('style', 'opacity:0.3');$('#listgroup_[#ID#]').attr('style', 'opacity:1');$(this).parent().hide();$('#delLinkForm_[#ID#]').show();$('#delLinkNoty_[#ID#]').show();" class="btn btn-xs btn-danger" style="margin-top: 10px;">Удалить привязку свойства</button></p>
+						
+						<form action="?" method="post" enctype="multipart/form-data" style="display:none;" id="delLinkForm_[#ID#]">
+							<input type="hidden" name="view_mode" value="<#VIEW_MODE#>"> 
+							<input type="hidden" name="edit_mode" value="[#PROPERTY_NAME#]"> 
+							<p style="color: gray;font-size: 1.2rem;margin: 0px;">↳ <button type="submit" class="btn btn-xs btn-danger" style="margin-top: 10px;">Удалить привязку свойства</button></p>
+						</form>
+					</div>
+					<div class="col-lg-8 col-sm-12 col-xs-12">
+						<div>
+							<pre style="cursor:text;">[#VALUE#]</pre>
+							<p style="font-size: 1rem;color: gray;margin: 0px;word-break: break-all;">[#if SOURCE!="" && VALUE != ''#]Source → [#SOURCE#][#endif#][#if VALUE !=''#] → [#UPDATED#]</p>[#else#]</p>[#endif#]
+						</div>
+					</div>
+				</div>
+			</li>
+			[#end MODULE_LINKED#]
+		</ul>
+	</div>
+</div>
+[#endif#]

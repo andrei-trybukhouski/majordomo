@@ -1,0 +1,51 @@
+ <!-- action usual -->
+ [#if DATA_SOURCE="mysensors" || DATA_SOURCE=""#]
+ 
+ <!-- table gate edit -->
+ [#if VIEW_MODE="gate_edit"#]
+	[#inc edit_gate.html#]
+ [#endif VIEW_MODE#] 
+ 
+ <!-- table mysensor search -->
+ [#if VIEW_MODE="nodes" || VIEW_MODE=""#]
+  [#inc main.html#]
+ [#endif VIEW_MODE#]
+ <!-- table bin edit -->
+ [#if VIEW_MODE="bin_edit"#]
+	[#inc edit_bin.html#]
+ [#endif VIEW_MODE#] 
+ <!-- table node edit -->
+ [#if VIEW_MODE="node_edit"#]
+<p align=center>
+ <a href="?">&lt;&lt;&lt; <#LANG_BACK#></a>
+</p>  
+   [#if ID!=""#]
+   [#if TITLE!=""#]<h4>[#TITLE#]</h4>[#endif TITLE#]
+<ul class="nav nav-tabs">
+  <li[#if TAB=""#] class="active"[#endif#]>
+   <a href="?data_source=<#DATA_SOURCE#>&view_mode=<#VIEW_MODE#>&id=<#ID#>&tab="><#LANG_GENERAL#></a>
+  </li>
+  <li[#if TAB="sensors"#] class="active"[#endif#]>
+   <a href="?data_source=<#DATA_SOURCE#>&view_mode=<#VIEW_MODE#>&id=<#ID#>&tab=sensors"><#LANG_GENERAL_SENSORS#></a>
+  </li>
+  <li[#if TAB="presentation"#] class="active"[#endif#]>
+   <a href="?data_source=<#DATA_SOURCE#>&view_mode=<#VIEW_MODE#>&id=<#ID#>&tab=presentation"><#LANG_PRESENTATION#></a>
+  </li>
+</ul>
+   [#endif ID#]   
+   [#if TAB=""#]
+    [#inc edit_node.html#]
+   [#endif TAB=""#]
+   [#if TAB="sensors"#]
+     [#inc edit_sensors.html#]
+   [#endif TAB="sensors"#]
+   [#if TAB="presentation"#]
+     [#inc edit_presentation.html#]
+   [#endif TAB="presentation"#]  
+ [#endif VIEW_MODE#]
+ <!-- / table node edit --> 
+ <!-- table node edit -->
+ [#if VIEW_MODE="sensor_add"#]
+   [#inc add_sensor.html#]
+ [#endif sensor_add#]
+[#endif DATA_SOURCE#]

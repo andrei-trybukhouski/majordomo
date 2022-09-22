@@ -1,0 +1,21 @@
+<a href="<#ROOTHTML#>admin.php" class="btn btn-default" target="_blank">Админка</a> <br>
+ [#module name="app_player"#]
+ <br/>
+   [#if USER_AVATAR!=""#]
+   <a href="#" onClick="return openModalTWindow('usersWindow', '<#LANG_USERS#>', '/popup/users.html', 400, 200);" title="[#USER_TITLE#]"><img src="<#ROOTHTML#>cms/avatars/[#USER_AVATAR#]" border="0" height="50" alt="[#USER_TITLE#]"></a>
+   [#else#]
+   <a href="#" onClick="return openModalTWindow('usersWindow', '<#LANG_USERS#>', '/popup/users.html', 400, 200);" title="[#USER_TITLE#]"><img src="<#ROOTHTML#>img/icons/user.png" border="0" alt="[#USER_TITLE#]"></a>
+   [#endif#]
+ <br/>
+<div>
+ <br>
+<font size=4em color="green">Статистика сервера</font><br>
+<font size=4em color="brown">
+<table  width="100%">
+<tr><td>CPU temp</td><td>%ThisComputer.CPU_temp%</td></tr>
+<tr><td>uptime</td><td>%ThisComputer.System_uptime%</td></tr>
+<tr><td>HDD</td><td>%ThisComputer.System_freespace%</td></tr>
+<tr><td>RAM</td><td>%ThisComputer.System_memory% сек.</td></tr>
+</table>
+</font>
+ </div>

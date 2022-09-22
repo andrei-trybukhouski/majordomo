@@ -1,0 +1,109 @@
+
+<!-- Table 'charts' edit -->
+<form action="?" method="post" enctype="multipart/form-data" name="frmEdit" class="form-horizontal">
+[#if OK#]
+<div class="alert alert-success"><#LANG_DATA_SAVED#></div>
+[#endif OK#]
+[#if ERR#]
+<div class="alert alert-error"><#LANG_FILLOUT_REQURED#></div>
+[#endif ERR#]
+<fieldset>
+[#if ID=""#]
+<legend><#LANG_NEW_RECORD#></legend>
+[#endif ID#]
+<!-- TITLE (varchar) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_TITLE#] style="color:red;font-weight:bold"[#endif#]>
+ <#LANG_TITLE#>:
+ (*)
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="title" value="[#TITLE#]" id="title"></div>
+</div>
+<!-- SUBTITLE (varchar) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_SUBTITLE#] style="color:red;font-weight:bold"[#endif#]>
+ SUBTITLE:
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="subtitle" value="[#SUBTITLE#]" id="subtitle"></div>
+</div>
+
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_THEME#] style="color:red;font-weight:bold"[#endif#]>
+ Design theme:
+ </label>
+ <div class="col-lg-4">
+ <select name="theme" class="form-control">
+  <option value="">Default
+  [#begin THEMES#]
+  <option value="[#TITLE#]"[#if TITLE="<#THEME#>"#] selected[#endif#]>[#TITLE#]
+  [#end THEMES#]
+ </select>
+ </div>
+</div>
+
+
+<!-- TYPE (varchar) -->
+<!--#
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_TYPE#] style="color:red;font-weight:bold"[#endif#]>
+ TYPE:
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="type" value="[#TYPE#]" id="type"></div>
+</div>
+#-->
+
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_TYPE#] style="color:red;font-weight:bold"[#endif#]>
+ <#LANG_PERIOD#>:
+ </label>
+ <div class="col-lg-4">
+ <input type="text" class="form-control" name="history_depth" value="[#HISTORY_DEPTH#]" id="type">
+ <select name="history_type" class="form-control">
+  <option value="1"><#LANG_MINUTES#>
+  <option value="60"[#if HISTORY_TYPE="60"#] selected[#endif#]><#LANG_HOURS#>
+  <option value="1440"[#if HISTORY_TYPE="1440"#] selected[#endif#]><#LANG_DAYS#>
+  <option value="10080"[#if HISTORY_TYPE="10080"#] selected[#endif#]>weeks
+  <option value="44640"[#if HISTORY_TYPE="44640"#] selected[#endif#]>months
+ </select>
+ </div>
+</div>
+
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_THEME#] style="color:red;font-weight:bold"[#endif#]>
+ Highcharts Setup:
+ </label>
+ <div class="col-lg-4">
+ <a id="label_show_setup" href="#" onClick='$("#highcharts_setup").show();$("#label_show_setup").hide();$("#label_hide_setup").show();return false;'><#LANG_SHOW#></a>
+ <a id="label_hide_setup" href="#" onClick='$("#highcharts_setup").hide();$("#label_show_setup").show();$("#label_hide_setup").hide();return false;' style="display: none"><#LANG_HIDE#></a>
+  <div id='highcharts_setup' style="display:none">
+  <textarea class="form-control" style="height: 320px" name="highcharts_setup" placeholder="(config, options) => { ... }">[#HIGHCHARTS_SETUP#]</textarea>
+  </div>
+</div>
+</div>
+
+
+<div class="form-group">
+        <div class="col-lg-offset-3 col-lg-4">
+ [#if ID!=""#]
+ <button type="submit" name="subm" value="Submit" class="btn btn-primary"><#LANG_SUBMIT#></button>
+ [#else ID#]
+ <button type="submit" name="subm" value="Add" class="btn btn-primary"><#LANG_ADD#></button>
+ [#endif ID#]
+ <a href="?data_source=<#DATA_SOURCE#>" class="btn btn-default "><#LANG_CANCEL#></a>
+
+ [#if ID!=""#]
+ <a class="btn btn-default" href="?id=<#ID#>&view_mode=clone_charts" onClick="return confirm('<#LANG_ARE_YOU_SURE#>')"><#LANG_MAKE_COPY#></a>
+ <a class="btn btn-default" href="?view_mode=delete_charts&id=<#ID#>" onClick="return confirm('<#LANG_ARE_YOU_SURE#>')"><#LANG_DELETE#></a>
+ [#endif ID#]
+
+
+<input type="hidden" name="id" value="<#ID#>">
+<input type="hidden" name="view_mode" value="<#VIEW_MODE#>">
+<input type="hidden" name="edit_mode" value="<#EDIT_MODE#>">
+<input type="hidden" name="mode" value="update">
+<input type="hidden" name="data_source" value="<#DATA_SOURCE#>">
+<input type="hidden" name="tab" value="<#TAB#>">
+        </div>
+</div>
+</fieldset>
+</form>

@@ -592,22 +592,24 @@ function getKeyData($object_id)
 function getGlobal($varname)
 {
     $tmp = explode('.', $varname);
-
+    
     $class_name = '';
     if (isset($tmp[2])) {
         $class_name = $tmp[0];
         $object_name = $tmp[0] . '.' . $tmp[1];
-        $varname = $tmp[2];
+        $prop_name = $tmp[2];
     } elseif (isset($tmp[1])) {
         $object_name = $tmp[0];
-        $varname = $tmp[1];
+        $prop_name = $tmp[1];
     } else {
         $object_name = 'ThisComputer';
+        $prop_name = $tmp[0];
     }
-    $cached_name = 'MJD:' . $object_name . '.' . $varname;
 
-    if (strpos($varname, 'cycle_') === 0) {
-        $cached_value = checkCycleFromCache($varname);
+    $cached_name = 'MJD:' . $object_name . '.' . $prop_name;
+
+    if (strpos($prop_name, 'cycle_') === 0) {
+        $cached_value = checkCycleFromCache($prop_name);
     } else {
         $cached_value = checkFromCache($cached_name);
     }
@@ -615,22 +617,24 @@ function getGlobal($varname)
         return $cached_value;
     }
 
+    if ($object_name === 'php_func' && function_exists($prop_name)) {
+        return $prop_name();
+    }
+
     if ($class_name != '' && isModuleInstalled($class_name)) {
         include_once(DIR_MODULES . $class_name . '/' . $class_name . '.class.php');
         $module = new $class_name();
         if (method_exists($module, 'getModuleProperty')) {
-            $data = $module->getModuleProperty($tmp[1] . '.' . $tmp[2]);
-            return $data;
-        }
-    } else {
-        $obj = getObject($object_name);
-        if ($obj) {
-            $value = $obj->getProperty($varname);
-            return $value;
+            return $module->getModuleProperty($tmp[1] . '.' . $tmp[2]);
         }
     }
-    return false;
 
+    $obj = getObject($object_name);
+    if ($obj) {
+        return $obj->getProperty($prop_name);
+    }
+
+    return false;
 }
 
 
@@ -1163,30 +1167,36 @@ function setGlobal($varname, $value, $no_linked = 0, $source = '')
  * @param mixed $params Params (default 0)
  * @return mixed
  */
-function callMethod($method_name, $params = 0)
+function callMethod($method_name, $params = [])
 {
     $tmp = explode('.', $method_name);
+
     if (isset($tmp[2])) {
         $object_name = $tmp[0] . '.' . $tmp[1];
-        $varname = $tmp[2];
+        $method = $tmp[2];
     } elseif (isset($tmp[1])) {
         $object_name = $tmp[0];
-        $method_name = $tmp[1];
+        $method = $tmp[1];
     } else {
         $object_name = 'ThisComputer';
+        $method = $tmp[0];
     }
 
-    if ($object_name == 'AllScripts') {
-        return runScript($method_name, $params);
+    if ($object_name === 'AllScripts') {
+        return runScript($method, $params);
+    }
+
+    if ($object_name === 'php_func' && function_exists($method)) {
+        if (!is_array($params)) $params = [$params];
+        return call_user_func_array($method, $params);
     }
 
     $obj = getObject($object_name);
-
     if ($obj) {
-        return $obj->callMethod($method_name, $params);
-    } else {
-        return 0;
+        return $obj->callMethod($method, $params);
     }
+
+    return false;
 }
 
 function callMethodSafe($method_name, $params = 0)
